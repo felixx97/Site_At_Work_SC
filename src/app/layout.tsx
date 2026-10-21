@@ -38,6 +38,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: SITE_CONFIG.url,
   },
+  icons: {
+    icon: [
+      { url: "/images/original/logo-square.png", type: "image/png" },
+    ],
+    apple: [
+      { url: "/images/original/logo-square.png" },
+    ],
+    shortcut: [
+      { url: "/images/original/logo-square.png" },
+    ],
+  },
 };
 
 import CookieBanner from "@/components/CookieBanner";
