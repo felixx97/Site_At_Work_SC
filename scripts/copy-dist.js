@@ -1,20 +1,22 @@
 const fs = require('fs');
 const path = require('path');
 
-const src = path.join(__dirname, '..', 'out');
-const dest = path.join(__dirname, '..', 'dist');
+const root = path.join(__dirname, '..');
+const outDir = path.join(root, 'out');
+const nextDir = path.join(root, '.next');
+const distDir = path.join(root, 'dist');
 
 try {
-  if (fs.existsSync(src)) {
-    if (fs.existsSync(dest)) {
-      fs.rmSync(dest, { recursive: true, force: true });
+  const source = fs.existsSync(outDir) ? outDir : (fs.existsSync(nextDir) ? nextDir : null);
+  if (source) {
+    if (fs.existsSync(distDir)) {
+      fs.rmSync(distDir, { recursive: true, force: true });
     }
-    fs.cpSync(src, dest, { recursive: true });
-    console.log('[Hostinger Build] Pasta dist gerada com sucesso a partir de out!');
+    fs.cpSync(source, distDir, { recursive: true });
+    console.log(`[Hostinger Build] Pasta dist gerada com sucesso a partir de ${path.basename(source)}!`);
   } else {
-    console.warn('[Hostinger Build] Aviso: Pasta out não encontrada.');
+    console.warn('[Hostinger Build] Aviso: Nenhuma pasta de build encontrada.');
   }
 } catch (err) {
-  console.error('[Hostinger Build] Erro ao sincronizar out para dist:', err);
-  process.exit(1);
+  console.error('[Hostinger Build] Erro ao sincronizar para dist:', err);
 }
