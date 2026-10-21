@@ -105,13 +105,13 @@ export default function HeroCarousel({ onOpenBooking }: HeroCarouselProps) {
       className="relative bg-[#F8FAFC] border-b border-neutral-200/80 overflow-hidden"
     >
       {/* Subtle Clean Architectural Accent */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
-        {/* Top Slide Selector Pills */}
-        <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
-          <div className="inline-flex p-1 rounded-full bg-neutral-200/70 border border-neutral-300/60">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-14 lg:py-18">
+        {/* Top Slide Selector - Fluid segmented control on mobile */}
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6 sm:mb-8">
+          <div className="w-full sm:w-auto grid grid-cols-2 sm:inline-flex p-1 rounded-2xl sm:rounded-full bg-neutral-200/70 border border-neutral-300/60 gap-1">
             <button
               onClick={() => handleSelectSlide(0)}
-              className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs sm:text-sm font-medium transition cursor-pointer ${
+              className={`inline-flex items-center justify-center gap-2 px-3 sm:px-5 py-2.5 rounded-xl sm:rounded-full text-xs sm:text-sm font-semibold transition cursor-pointer ${
                 activeSlide === 0
                   ? "bg-black text-white shadow-sm"
                   : "text-neutral-600 hover:text-black"
@@ -122,7 +122,7 @@ export default function HeroCarousel({ onOpenBooking }: HeroCarouselProps) {
             </button>
             <button
               onClick={() => handleSelectSlide(1)}
-              className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs sm:text-sm font-medium transition cursor-pointer ${
+              className={`inline-flex items-center justify-center gap-2 px-3 sm:px-5 py-2.5 rounded-xl sm:rounded-full text-xs sm:text-sm font-semibold transition cursor-pointer ${
                 activeSlide === 1
                   ? "bg-black text-white shadow-sm"
                   : "text-neutral-600 hover:text-black"
@@ -133,52 +133,52 @@ export default function HeroCarousel({ onOpenBooking }: HeroCarouselProps) {
             </button>
           </div>
 
-          <div className="flex items-center gap-3 text-xs text-neutral-500">
+          <div className="flex items-center justify-between sm:justify-end gap-3 text-xs text-neutral-500">
             {hasInteracted && (
-              <span className="hidden md:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-neutral-200/60 text-neutral-600 text-[11px]">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-neutral-200/60 text-neutral-600 text-[11px]">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#16A34A]" />
-                Pausado para sua leitura
+                Pausado
               </span>
             )}
-            <div className="hidden sm:flex items-center gap-2">
-              <MapPin className="w-3.5 h-3.5 text-[#0284C7]" />
-              <span>Centro Tecnológico de Florianópolis · Próximo ao Passeio Primavera</span>
+            <div className="flex items-center gap-1.5 text-[11px] sm:text-xs text-neutral-500">
+              <MapPin className="w-3.5 h-3.5 text-[#0284C7] shrink-0" />
+              <span>SC-401 · Próximo ao Passeio Primavera</span>
             </div>
           </div>
         </div>
 
-        {/* Main Slide Grid - Locked exact height to eliminate any layout shift */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          {/* Left Editorial Text - Exact fixed height per breakpoint */}
-          <div className="lg:col-span-6 flex flex-col justify-between h-[510px] sm:h-[520px] lg:h-[530px]">
-            <div className="space-y-2">
-              <span className="inline-block text-xs sm:text-sm font-semibold uppercase tracking-widest text-[#0284C7]">
+        {/* Main Slide Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          {/* Left Editorial Text - Fluid on mobile, locked on desktop */}
+          <div className="lg:col-span-6 flex flex-col justify-between h-auto lg:h-[530px] space-y-5 sm:space-y-6">
+            <div className="space-y-2 sm:space-y-3">
+              <span className="inline-block text-[11px] sm:text-xs font-bold uppercase tracking-wider text-[#0284C7]">
                 {current.tag}
               </span>
-              <div className="h-[84px] sm:h-[96px] lg:h-[110px] flex items-center">
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-neutral-950 leading-[1.08]">
+              <div className="h-auto lg:h-[110px] flex items-center">
+                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-neutral-950 leading-[1.12]">
                   {current.title}
                 </h1>
               </div>
             </div>
 
-            <div className="h-[74px] sm:h-[78px] lg:h-[82px] flex items-start">
-              <p className="text-neutral-600 text-base sm:text-lg leading-relaxed font-normal">
+            <div className="h-auto lg:h-[82px] flex items-start">
+              <p className="text-neutral-600 text-sm sm:text-base lg:text-lg leading-relaxed font-normal">
                 {current.subtitle}
               </p>
             </div>
 
-            {/* Price & Bullets - Locked exact height card */}
-            <div className="bg-white rounded-2xl p-5 border border-neutral-200/90 shadow-xs space-y-3 h-[178px] flex flex-col justify-between">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#6EC1E4]/15 text-[#0369A1] text-xs font-semibold w-fit">
+            {/* Price & Bullets - Clean and integrated without boxy nested borders */}
+            <div className="space-y-3.5 pt-1">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0284C7]/10 text-[#0284C7] text-xs sm:text-sm font-semibold w-fit">
                 {current.priceHighlight}
               </div>
 
-              <ul className="space-y-2">
+              <ul className="space-y-2.5">
                 {current.bullets.map((b, i) => (
-                  <li key={i} className="flex items-center gap-2.5 text-sm text-neutral-700">
-                    <span className="w-5 h-5 rounded-full bg-[#61CE70]/15 text-[#15803D] flex items-center justify-center shrink-0">
-                      <Check className="w-3.5 h-3.5" />
+                  <li key={i} className="flex items-center gap-2.5 text-xs sm:text-sm text-neutral-700 font-medium">
+                    <span className="w-5 h-5 rounded-full bg-[#16A34A]/15 text-[#16A34A] flex items-center justify-center shrink-0">
+                      <Check className="w-3.5 h-3.5 stroke-[2.5]" />
                     </span>
                     <span>{b}</span>
                   </li>
@@ -186,11 +186,11 @@ export default function HeroCarousel({ onOpenBooking }: HeroCarouselProps) {
               </ul>
             </div>
 
-            {/* CTAs */}
-            <div className="flex flex-wrap items-center gap-3.5 pt-1">
+            {/* CTAs - Mobile full-width touch friendly */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
               <a
                 href={current.primaryCta.href}
-                className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-black hover:bg-neutral-800 text-white font-medium text-sm sm:text-base transition shadow-sm"
+                className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 sm:py-4 rounded-full bg-black hover:bg-neutral-800 text-white font-semibold text-sm sm:text-base transition shadow-sm"
               >
                 <span>{current.primaryCta.label}</span>
                 <ArrowRight className="w-4 h-4 text-[#6EC1E4]" />
@@ -198,7 +198,7 @@ export default function HeroCarousel({ onOpenBooking }: HeroCarouselProps) {
 
               <button
                 onClick={() => onOpenBooking(current.secondaryCta.service)}
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white hover:bg-neutral-100 text-neutral-900 border border-neutral-300 font-medium text-sm sm:text-base transition cursor-pointer"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 sm:py-4 rounded-full bg-white hover:bg-neutral-100 text-neutral-900 border border-neutral-300 font-semibold text-sm sm:text-base transition cursor-pointer"
               >
                 <Calendar className="w-4 h-4 text-[#0284C7]" />
                 <span>{current.secondaryCta.label}</span>
@@ -206,38 +206,38 @@ export default function HeroCarousel({ onOpenBooking }: HeroCarouselProps) {
             </div>
           </div>
 
-          {/* Right Clean Visual Frame - Consistent 4/3 Aspect Ratio */}
+          {/* Right Clean Visual Frame */}
           <div className="lg:col-span-6 relative">
-            <div className="relative rounded-3xl overflow-hidden bg-neutral-900 shadow-xl border border-neutral-200 aspect-[4/3]">
+            <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-neutral-900 shadow-xl border border-neutral-200/90 aspect-[16/10] sm:aspect-[4/3]">
               <img
                 src={current.image}
                 alt={current.title}
                 className="w-full h-full object-cover transition-all duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent flex flex-col justify-end p-6 sm:p-8">
-                <span className="text-xs uppercase tracking-widest text-[#6EC1E4] font-semibold">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-5 sm:p-8">
+                <span className="text-[11px] sm:text-xs uppercase tracking-widest text-[#6EC1E4] font-semibold">
                   At Work SC · Florianópolis
                 </span>
-                <p className="text-white text-sm sm:text-base font-medium mt-0.5">
+                <p className="text-white text-xs sm:text-base font-medium mt-0.5">
                   {current.imageCaption}
                 </p>
               </div>
 
               {/* Prev / Next Controls inside Image */}
-              <div className="absolute top-4 right-4 flex items-center gap-2">
+              <div className="absolute top-3 right-3 sm:top-4 sm:right-4 flex items-center gap-2">
                 <button
                   onClick={handlePrevSlide}
-                  className="w-10 h-10 rounded-full bg-white/90 hover:bg-white text-neutral-900 flex items-center justify-center shadow-md transition cursor-pointer"
+                  className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/90 hover:bg-white text-neutral-900 flex items-center justify-center shadow-md transition cursor-pointer"
                   aria-label="Slide anterior"
                 >
-                  <ChevronLeft className="w-5 h-5" />
+                  <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
                 </button>
                 <button
                   onClick={handleNextSlide}
-                  className="w-10 h-10 rounded-full bg-white/90 hover:bg-white text-neutral-900 flex items-center justify-center shadow-md transition cursor-pointer"
+                  className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/90 hover:bg-white text-neutral-900 flex items-center justify-center shadow-md transition cursor-pointer"
                   aria-label="Próximo slide"
                 >
-                  <ChevronRight className="w-5 h-5" />
+                  <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
                 </button>
               </div>
             </div>

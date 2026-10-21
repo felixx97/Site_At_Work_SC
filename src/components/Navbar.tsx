@@ -14,8 +14,8 @@ export default function Navbar({ onResetToHuman, onOpenBooking }: NavbarProps) {
 
   return (
     <header className="sticky top-0 inset-x-0 z-40 bg-white/95 backdrop-blur-md border-b border-neutral-200/80">
-      {/* Top Discrete Info Bar (Matches original site header info) */}
-      <div className="bg-black text-white text-xs py-2 px-4">
+      {/* Top Discrete Info Bar (Desktop only, hidden on mobile for clean modern app header) */}
+      <div className="hidden lg:block bg-black text-white text-xs py-2 px-4">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-4">
             <span className="inline-flex items-center gap-1.5 text-neutral-200">
@@ -54,18 +54,18 @@ export default function Navbar({ onResetToHuman, onOpenBooking }: NavbarProps) {
       </div>
 
       {/* Main Clean Header */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-22 flex items-center justify-between gap-6">
-        {/* Original Logo Only (Larger & Prominent, no redundant text) */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 lg:h-22 flex items-center justify-between gap-4">
+        {/* Original Logo Only (Proportional on mobile, crisp on desktop) */}
         <a
           href="#"
           onClick={onResetToHuman}
-          className="flex items-center shrink-0 py-2"
+          className="flex items-center shrink-0 py-1 sm:py-2"
           aria-label="At Work SC - Início"
         >
           <img
             src="/images/original/logo-atwork.png"
             alt="At Work SC"
-            className="h-14 sm:h-16 w-auto object-contain transition-transform hover:scale-[1.02]"
+            className="h-10 sm:h-14 lg:h-16 w-auto object-contain transition-transform hover:scale-[1.02]"
           />
         </a>
 
@@ -95,7 +95,7 @@ export default function Navbar({ onResetToHuman, onOpenBooking }: NavbarProps) {
         </nav>
 
         {/* Action Buttons */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2.5 sm:gap-3">
           <button
             onClick={() => onOpenBooking("Visita ao Espaço At Work SC")}
             className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-black hover:bg-neutral-800 text-white font-medium text-sm transition cursor-pointer shadow-sm"
@@ -104,9 +104,20 @@ export default function Navbar({ onResetToHuman, onOpenBooking }: NavbarProps) {
             <span>Agendar Visita</span>
           </button>
 
+          <a
+            href={`https://wa.me/${SITE_CONFIG.contact.whatsappNumber}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="sm:hidden inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-[#16A34A] text-white text-xs font-semibold shadow-xs"
+            aria-label="Falar no WhatsApp"
+          >
+            <Phone className="w-3.5 h-3.5" />
+            <span>WhatsApp</span>
+          </a>
+
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2.5 rounded-xl border border-neutral-200 text-neutral-800 hover:bg-neutral-100"
+            className="p-2 rounded-xl border border-neutral-200 text-neutral-800 hover:bg-neutral-100"
             aria-label="Menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -120,7 +131,7 @@ export default function Navbar({ onResetToHuman, onOpenBooking }: NavbarProps) {
           <a
             href="#planos-fiscais"
             onClick={() => setMobileMenuOpen(false)}
-            className="block py-2 border-b border-neutral-100 font-medium"
+            className="block py-2 border-b border-neutral-100 font-semibold text-neutral-950"
           >
             Endereço Fiscal (a partir de R$ 54,90)
           </a>
@@ -166,15 +177,24 @@ export default function Navbar({ onResetToHuman, onOpenBooking }: NavbarProps) {
           >
             Privacidade & Cookies (LGPD)
           </a>
+
+          {/* Quick Direct Contacts for Mobile */}
+          <div className="pt-2 flex flex-col gap-2 text-xs text-neutral-600">
+            <div className="flex items-center gap-2 text-neutral-500">
+              <MapPin className="w-3.5 h-3.5 text-[#0284C7] shrink-0" />
+              <span>Rod. SC-401, 4190 · Bloco B · Saco Grande</span>
+            </div>
+          </div>
+
           <button
             onClick={() => {
               setMobileMenuOpen(false);
               onOpenBooking("Visita ao Espaço At Work SC");
             }}
-            className="w-full py-3 rounded-full bg-black text-white font-medium text-sm flex items-center justify-center gap-2 mt-2"
+            className="w-full py-3.5 rounded-full bg-black text-white font-medium text-sm flex items-center justify-center gap-2 mt-3 cursor-pointer shadow-sm"
           >
             <Calendar className="w-4 h-4 text-[#6EC1E4]" />
-            Agendar Visita no Google Agenda
+            Agendar Visita Presencial
           </button>
         </div>
       )}

@@ -66,24 +66,24 @@ export default function HomePage() {
           <HeroCarousel onOpenBooking={handleOpenBooking} />
 
           {/* ================= FLORIANÓPOLIS / SOBRE NÓS EDITORIAL SECTION ================= */}
-          <section id="sobre" className="py-20 bg-white">
+          <section id="sobre" className="py-12 sm:py-16 lg:py-20 bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                <div className="lg:col-span-6 space-y-5">
-                  <span className="text-xs font-semibold uppercase tracking-widest text-[#0284C7]">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                <div className="lg:col-span-6 space-y-4 sm:space-y-5">
+                  <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-widest text-[#0284C7]">
                     Ilha da Magia · Centro Tecnológico SC-401
                   </span>
-                  <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-neutral-950 leading-tight">
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-neutral-950 leading-tight">
                     O espaço ideal para o seu negócio próximo ao Passeio Primavera.
                   </h2>
-                  <p className="text-neutral-600 text-base leading-relaxed">
+                  <p className="text-neutral-600 text-sm sm:text-base leading-relaxed">
                     No <strong>At Work SC</strong>, você conta com um ambiente de trabalho
                     inspirador na Rodovia José Carlos Daux (SC-401), equipado com as melhores
                     comodidades para aumentar a sua produtividade e fortalecer a presença da sua
                     empresa em Florianópolis.
                   </p>
-                  <p className="text-neutral-600 text-base leading-relaxed">
-                    Oferecemos serviços de <strong>endereço comercial, endereço fiscal, inscrição
+                  <p className="text-neutral-600 text-sm sm:text-base leading-relaxed">
+                    Oferecemos <strong>endereço fiscal, endereço fiscal com inscrição
                     estadual</strong> e gestão de correspondências com aviso no WhatsApp, além de{" "}
                     <strong>salas privativas mobiliadas (15 a 70m²)</strong> perfeitas para times de
                     todos os portes, com possibilidade de revezamento entre os membros da equipe.
@@ -136,7 +136,7 @@ export default function HomePage() {
           </section>
 
           {/* ================= PLANS SECTION 1: ENDEREÇO FISCAL ================= */}
-          <section id="planos-fiscais" className="py-20 bg-[#F8FAFC] border-t border-neutral-200/80">
+          <section id="planos-fiscais" className="py-12 sm:py-16 lg:py-20 bg-[#F8FAFC] border-t border-neutral-200/80">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center max-w-3xl mx-auto mb-14">
                 <span className="text-xs font-semibold uppercase tracking-widest text-[#0284C7]">
@@ -268,7 +268,7 @@ export default function HomePage() {
           </section>
 
           {/* ================= PLANS SECTION 2: COWORKING & SALAS PRIVATIVAS ================= */}
-          <section id="planos-coworking" className="py-20 bg-white border-t border-neutral-200/80">
+          <section id="planos-coworking" className="py-12 sm:py-16 lg:py-20 bg-white border-t border-neutral-200/80">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-14 gap-6">
                 <div>
