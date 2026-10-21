@@ -58,7 +58,7 @@ export default function RootLayout({
         url: SITE_CONFIG.url,
         telephone: "+55-48-98415-7836",
         email: SITE_CONFIG.contact.email,
-        priceRange: "R$ 24,90 - R$ 450,00+",
+        priceRange: "R$ 54,90 - R$ 450,00+",
         address: {
           "@type": "PostalAddress",
           streetAddress: `${SITE_CONFIG.address.street} - ${SITE_CONFIG.address.complement}`,
@@ -102,7 +102,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="pt-BR" className="scroll-smooth">
+    <html lang="pt-BR" className="scroll-smooth" suppressHydrationWarning>
       <head>
         <link rel="help" type="text/plain" href="/llms.txt" title="LLM Context Summary" />
         <script
@@ -110,7 +110,10 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`${jost.variable} ${jetbrainsMono.variable} antialiased font-sans bg-white text-neutral-900`}>
+      <body
+        suppressHydrationWarning
+        className={`${jost.variable} ${jetbrainsMono.variable} antialiased font-sans bg-white text-neutral-900`}
+      >
         {children}
         <CookieBanner />
       </body>

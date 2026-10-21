@@ -25,10 +25,10 @@ export default function HeroCarousel({ onOpenBooking }: HeroCarouselProps) {
     {
       id: "endereco-fiscal",
       tag: "Profissionalize sua empresa com facilidade",
-      title: "Endereço Fiscal",
+      title: "Endereço Fiscal & CNPJ",
       subtitle:
-        "Utilize nosso endereço fiscal para registrar sua empresa com credibilidade. Nossa solução oferece uma localização prestigiada na SC-401 em Florianópolis, com suporte completo para correspondências, Inscrição Estadual e reuniões.",
-      priceHighlight: "Planos a partir de R$ 24,90/mês",
+        "Utilize nosso endereço fiscal para registrar seu CNPJ com credibilidade na SC-401. Solução completa para correspondências, abertura ágil de empresas e opção de Inscrição Estadual.",
+      priceHighlight: "Planos a partir de R$ 54,90/mês",
       bullets: [
         "Abertura ou transferência de CNPJ sem burocracia",
         "Aviso imediato de correspondência via WhatsApp",
@@ -50,7 +50,7 @@ export default function HeroCarousel({ onOpenBooking }: HeroCarouselProps) {
       tag: "Espaços de Trabalho Flexíveis e Inspiradores",
       title: "Coworking & Salas Privativas",
       subtitle:
-        "Descubra um ambiente na Ilha da Magia que combina conforto, natureza ao redor e inovação. Oferecemos escritórios privativos de 15 a 70m², estações compartilhadas 24h, salas de reunião e um ambiente colaborativo próximo ao Passeio Primavera.",
+        "Ambiente moderno na SC-401 combinando conforto, natureza e inovação. Oferecemos escritórios privativos de 15 a 70m², estações de trabalho 24/7, salas de reunião e copa completa.",
       priceHighlight: "Diárias a partir de R$ 30,00 ou Mensal 24/7",
       bullets: [
         "Salas privativas mobiliadas p/ equipes (15m² a 70m²)",
@@ -147,29 +147,29 @@ export default function HeroCarousel({ onOpenBooking }: HeroCarouselProps) {
           </div>
         </div>
 
-        {/* Main Slide Grid - Locked minimum height to prevent any layout shifts */}
+        {/* Main Slide Grid - Locked exact height to eliminate any layout shift */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          {/* Left Editorial Text - Stabilized sizing */}
-          <div className="lg:col-span-6 flex flex-col justify-between min-h-[480px] sm:min-h-[500px] lg:min-h-[520px] space-y-6">
-            <div className="space-y-3">
+          {/* Left Editorial Text - Exact fixed height per breakpoint */}
+          <div className="lg:col-span-6 flex flex-col justify-between h-[510px] sm:h-[520px] lg:h-[530px]">
+            <div className="space-y-2">
               <span className="inline-block text-xs sm:text-sm font-semibold uppercase tracking-widest text-[#0284C7]">
                 {current.tag}
               </span>
-              <div className="min-h-[80px] sm:min-h-[92px] lg:min-h-[116px] flex items-center">
+              <div className="h-[84px] sm:h-[96px] lg:h-[110px] flex items-center">
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-neutral-950 leading-[1.08]">
                   {current.title}
                 </h1>
               </div>
             </div>
 
-            <div className="min-h-[76px] sm:min-h-[80px] lg:min-h-[88px]">
+            <div className="h-[74px] sm:h-[78px] lg:h-[82px] flex items-start">
               <p className="text-neutral-600 text-base sm:text-lg leading-relaxed font-normal">
                 {current.subtitle}
               </p>
             </div>
 
-            {/* Price & Bullets - Locked height card */}
-            <div className="bg-white rounded-2xl p-5 border border-neutral-200/90 shadow-xs space-y-3 min-h-[178px] flex flex-col justify-between">
+            {/* Price & Bullets - Locked exact height card */}
+            <div className="bg-white rounded-2xl p-5 border border-neutral-200/90 shadow-xs space-y-3 h-[178px] flex flex-col justify-between">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#6EC1E4]/15 text-[#0369A1] text-xs font-semibold w-fit">
                 {current.priceHighlight}
               </div>
@@ -187,10 +187,10 @@ export default function HeroCarousel({ onOpenBooking }: HeroCarouselProps) {
             </div>
 
             {/* CTAs */}
-            <div className="flex flex-wrap items-center gap-3.5 pt-2">
+            <div className="flex flex-wrap items-center gap-3.5 pt-1">
               <a
                 href={current.primaryCta.href}
-                className="inline-flex items-center gap-2.5 px-7 py-4 rounded-full bg-black hover:bg-neutral-800 text-white font-medium text-sm sm:text-base transition shadow-sm"
+                className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-black hover:bg-neutral-800 text-white font-medium text-sm sm:text-base transition shadow-sm"
               >
                 <span>{current.primaryCta.label}</span>
                 <ArrowRight className="w-4 h-4 text-[#6EC1E4]" />
@@ -198,7 +198,7 @@ export default function HeroCarousel({ onOpenBooking }: HeroCarouselProps) {
 
               <button
                 onClick={() => onOpenBooking(current.secondaryCta.service)}
-                className="inline-flex items-center gap-2 px-6 py-4 rounded-full bg-white hover:bg-neutral-100 text-neutral-900 border border-neutral-300 font-medium text-sm sm:text-base transition cursor-pointer"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white hover:bg-neutral-100 text-neutral-900 border border-neutral-300 font-medium text-sm sm:text-base transition cursor-pointer"
               >
                 <Calendar className="w-4 h-4 text-[#0284C7]" />
                 <span>{current.secondaryCta.label}</span>

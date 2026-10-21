@@ -97,7 +97,7 @@ ${FAQ_ITEMS.map((f) => `Q: ${f.question}\nA: ${f.answer}`).join("\n\n")}
       url: SITE_CONFIG.url,
       telephone: "+55-48-98415-7836",
       email: SITE_CONFIG.contact.email,
-      priceRange: "R$ 24,90 - R$ 450,00+",
+      priceRange: "R$ 54,90 - R$ 450,00+",
       openingHours: "Mo-Su 00:00-23:59",
       address: {
         "@type": "PostalAddress",
@@ -124,7 +124,7 @@ ${FAQ_ITEMS.map((f) => `Q: ${f.question}\nA: ${f.answer}`).join("\n\n")}
   };
 
   const aiPrompt = encodeURIComponent(
-    `Analise os planos da empresa At Work SC (localizada na Rod. SC-401, 4190 - Florianópolis, https://atworksc.com.br): Endereço Fiscal a partir de R$ 24,90/mês (correspondência), R$ 54,90/mês (CNPJ Serviços), R$ 74,90/mês (com sala de reunião e 20% off estacionamento), R$ 94,90/mês (com Inscrição Estadual + 1 diária coworking), Diária de Coworking R$ 30/dia, Mensalista 24/7 R$ 450/mês e Salas Privativas de 15 a 70m². Me ajude a escolher o melhor plano para minha empresa e compare a economia com um aluguel tradicional.`
+    `Analise os planos da empresa At Work SC (localizada na Rod. SC-401, 4190 - Florianópolis, https://atworksc.com.br): Plano 1 Endereço Fiscal a R$ 54,90/mês (CNPJ Serviços), Plano 2 Endereço Fiscal com Inscrição Estadual a R$ 94,90/mês (Comércio e E-commerce), Diária de Coworking R$ 30/dia, Mensalista 24/7 R$ 450/mês e Salas Privativas de 15 a 70m². Me ajude a escolher o melhor plano para minha empresa e compare a economia com um aluguel tradicional.`
   );
 
   return (

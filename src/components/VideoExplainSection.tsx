@@ -25,7 +25,7 @@ export default function VideoExplainSection() {
       badge: "Abertura ou Transferência Simples",
       title: "Escolha seu Plano Ideal na Rodovia SC-401",
       subtitle:
-        "A partir de R$ 24,90/mês (Correspondência), R$ 54,90/mês (CNPJ Serviços) ou R$ 94,90/mês (Comércio com Inscrição Estadual).",
+        "Plano 1 a R$ 54,90/mês (Endereço Fiscal p/ Serviços) ou Plano 2 a R$ 94,90/mês (Comércio & E-commerce com Inscrição Estadual).",
       highlight: "Sem fiador · Contrato simples · Economia de até 85% vs. aluguel tradicional",
     },
     {
@@ -278,10 +278,8 @@ export default function VideoExplainSection() {
                         </div>
                         <div className="space-y-2">
                           {[
-                            { name: "Plano 1 · Correspondência", price: "R$ 24,90/mês", tag: "Comercial" },
-                            { name: "Plano 2 · Endereço Fiscal CNPJ", price: "R$ 54,90/mês", tag: "Serviços" },
-                            { name: "Plano 3 · Fiscal + Sala Reunião", price: "R$ 74,90/mês", tag: "+20% Off Estac." },
-                            { name: "Plano 4 · Fiscal + Inscrição Estadual", price: "R$ 94,90/mês", tag: "Comércio + 1 Diária" },
+                            { name: "Plano 1 · Endereço Fiscal", price: "R$ 54,90/mês", tag: "Serviços & CNPJ" },
+                            { name: "Plano 2 · Fiscal + Inscrição Estadual", price: "R$ 94,90/mês", tag: "Comércio & E-commerce" },
                           ].map((p, i) => (
                             <div
                               key={i}

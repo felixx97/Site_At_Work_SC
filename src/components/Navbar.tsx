@@ -122,7 +122,7 @@ export default function Navbar({ onResetToHuman, onOpenBooking }: NavbarProps) {
             onClick={() => setMobileMenuOpen(false)}
             className="block py-2 border-b border-neutral-100 font-medium"
           >
-            Endereço Fiscal (a partir de R$ 24,90)
+            Endereço Fiscal (a partir de R$ 54,90)
           </a>
           <a
             href="#planos-coworking"

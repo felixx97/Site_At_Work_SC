@@ -30,7 +30,7 @@ export const SITE_CONFIG = {
   legalName: "At Work SC Coworking & Endereço Fiscal",
   tagline: "O Seu Endereço Estratégico e Espaço de Trabalho na Rota da Inovação de Florianópolis",
   description:
-    "Endereço Fiscal a partir de R$ 24,90/mês (com opção de Inscrição Estadual), Escritórios Privativos de 15 a 70m², Coworking 24h e Salas de Reunião na Rodovia SC-401, Florianópolis.",
+    "Endereço Fiscal a partir de R$ 54,90/mês (com opção de Inscrição Estadual a R$ 94,90/mês), Escritórios Privativos de 15 a 70m², Coworking 24h e Salas de Reunião na Rodovia SC-401, Florianópolis.",
   url: "https://atworksc.com.br",
   founders: ["Elisa Barbato", "Luiz Barbato"],
   contact: {
@@ -65,83 +65,41 @@ export const SITE_CONFIG = {
 export const FISCAL_PLANS: PlanItem[] = [
   {
     id: "fiscal-1",
-    name: "Plano 1 · Caixa Postal & Correspondência",
-    subtitle: "Ideal para profissionais liberais e gestão segura de entregas",
-    price: "R$ 24,90",
+    name: "Plano 1",
+    subtitle: "Endereço Fiscal para registro de CNPJ e correspondências",
+    price: "R$ 54,90",
     period: "/mês",
-    badge: "Menor Preço da Ilha",
+    badge: "Mais Procurado",
     highlight: false,
     category: "fiscal",
     features: [
-      "Endereço Comercial de prestígio na Rodovia SC-401",
-      "Recebimento de correspondências e encomendas em horário comercial",
-      "Aviso instantâneo de chegada com foto via WhatsApp",
-      "Guarda segura de documentos na recepção",
-      "Contrato digital sem fiador e sem burocracia",
+      "Endereço Fiscal para registro de CNPJ na Rodovia SC-401",
+      "Recebimento de correspondência com aviso de entrega por WhatsApp",
+      "Documentação rápida para Junta Comercial e Prefeitura",
+      "Zero custos com condomínio, IPTU ou manutenção predial",
     ],
-    ctaText: "Contratar por R$ 24,90",
+    ctaText: "Contratar",
     whatsappMessage:
-      "Olá! Vim pelo site da At Work SC e quero contratar o Plano 1 (R$ 24,90/mês - Recebimento de Correspondência).",
+      "Olá! Vim pelo site da At Work SC e quero contratar o Plano 1 de Endereço Fiscal (R$ 54,90/mês).",
   },
   {
     id: "fiscal-2",
-    name: "Plano 2 · Endereço Fiscal CNPJ",
-    subtitle: "Perfeito para prestadores de serviços, devs, consultorias e holdings",
-    price: "R$ 54,90",
-    period: "/mês",
-    badge: "Mais Escolhido p/ Serviços",
-    highlight: true,
-    category: "fiscal",
-    features: [
-      "Endereço Fiscal completo para abertura ou transferência de CNPJ",
-      "Documentação liberada rapidamente para Junta Comercial e Prefeitura",
-      "Recebimento de correspondências com aviso imediato via WhatsApp",
-      "Localização estratégica no polo tecnológico de Florianópolis (SC-401)",
-      "Zero custo de IPTU, condomínio, energia ou recepção",
-    ],
-    ctaText: "Ativar Meu CNPJ por R$ 54,90",
-    whatsappMessage:
-      "Olá! Vim pelo site da At Work SC e quero contratar o Plano 2 de Endereço Fiscal (R$ 54,90/mês) para minha empresa.",
-  },
-  {
-    id: "fiscal-3",
-    name: "Plano 3 · Fiscal + Reunião & benefícios",
-    subtitle: "Para empresas digitais que também recebem clientes presencialmente",
-    price: "R$ 74,90",
-    period: "/mês",
-    badge: "Custo-Benefício Executivo",
-    highlight: false,
-    category: "fiscal",
-    features: [
-      "Endereço Fiscal completo para registro de CNPJ",
-      "Recebimento de correspondências com aviso via WhatsApp",
-      "Uso de Sala de Reunião Executiva (mediante agendamento)",
-      "20% OFF no estacionamento do complexo High Tech",
-      "Acesso à infraestrutura de copa e recepção em dias de reunião",
-    ],
-    ctaText: "Contratar Plano 3",
-    whatsappMessage:
-      "Olá! Vim pelo site da At Work SC e tenho interesse no Plano 3 de Endereço Fiscal (R$ 74,90/mês com Sala de Reunião).",
-  },
-  {
-    id: "fiscal-4",
-    name: "Plano 4 · Fiscal Completo / Inscrição Estadual",
-    subtitle: "Para Comércio/E-commerce (Inscrição Estadual) ou experiência Full Hub",
+    name: "Plano 2",
+    subtitle: "Endereço Fiscal com Inscrição Estadual (Comércio & E-commerce)",
     price: "R$ 94,90",
     period: "/mês",
-    badge: "Habilitado p/ Inscrição Estadual",
+    badge: "Com Inscrição Estadual",
     highlight: true,
     category: "fiscal",
     features: [
-      "Endereço Fiscal + Habilitação para Inscrição Estadual (ICMS/Comércio)",
-      "Recebimento de correspondências e notificações fiscais via WhatsApp",
-      "Sala de Reunião Executiva inclusa (mediante agendamento)",
-      "1 Diária de trabalho/mês em espaço compartilhado com estacionamento",
-      "20% OFF no estacionamento High Tech nas demais visitas",
+      "Endereço Fiscal completo na Rodovia SC-401",
+      "Endereço Fiscal com Inscrição Estadual (ICMS / SEF-SC)",
+      "Recebimento de correspondência com aviso de entrega por WhatsApp",
+      "Documentação pronta para emissão de notas fiscais de venda",
     ],
-    ctaText: "Contratar Plano Completo",
+    ctaText: "Contratar",
     whatsappMessage:
-      "Olá! Vim pelo site da At Work SC e quero contratar o Plano 4 de R$ 94,90/mês (Endereço Fiscal c/ Inscrição Estadual + benefícios).",
+      "Olá! Vim pelo site da At Work SC e quero contratar o Plano 2 de Endereço Fiscal com Inscrição Estadual (R$ 94,90/mês).",
   },
 ];
 
@@ -336,9 +294,9 @@ export const BENEFITS = [
 
 export const FAQ_ITEMS = [
   {
-    question: "Qual a diferença entre Endereço Comercial, Endereço Fiscal e Inscrição Estadual?",
+    question: "Qual a diferença entre Endereço Fiscal (Plano 1) e Endereço Fiscal com Inscrição Estadual (Plano 2)?",
     answer:
-      "O Endereço Comercial (Plano 1 - R$ 24,90) serve para divulgar em cartões, site e receber correspondências. Já o Endereço Fiscal (Plano 2 - R$ 54,90 e Plano 3 - R$ 74,90) fornece toda a documentação legal do imóvel na SC-401 para abrir ou transferir seu CNPJ de prestação de serviços na Junta Comercial e Prefeitura. O Plano 4 (R$ 94,90) inclui também a liberação para Inscrição Estadual em Santa Catarina, ideal para empresas de comércio, distribuição ou e-commerce.",
+      "O Endereço Fiscal (Plano 1 - R$ 54,90/mês) fornece toda a documentação legal e alvarás do imóvel na SC-401 para abrir ou transferir seu CNPJ na Junta Comercial e Prefeitura de Florianópolis, perfeito para empresas de serviços, consultores, tecnologia e profissionais liberais. Já o Plano 2 (R$ 94,90/mês) inclui também a habilitação para Inscrição Estadual (ICMS / SEF-SC), exigida pela Secretaria da Fazenda para empresas de comércio físico ou e-commerce que emitem notas fiscais de venda de produtos.",
   },
   {
     question: "Como funciona o contrato? Precisa de fiador ou caução?",
@@ -358,7 +316,7 @@ export const FAQ_ITEMS = [
   {
     question: "Como funciona o estacionamento para clientes e visitantes?",
     answer:
-      "O complexo conta com estacionamento amplo (opções abertas e cobertas), seguro e monitorado 24/7, operando na modalidade diária, horista ou mensal. Clientes dos nossos planos de coworking e dos planos fiscais 3 e 4 contam com descontos exclusivos no estacionamento High Tech.",
+      "O complexo conta com estacionamento amplo (opções abertas e cobertas), seguro e monitorado 24/7, operando na modalidade diária, horista ou mensal. Clientes dos nossos planos de coworking e salas privativas contam com descontos exclusivos no estacionamento High Tech.",
   },
   {
     question: "Minha equipe trabalha em modelo híbrido. Podemos revezar o uso da Sala Privativa?",

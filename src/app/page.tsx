@@ -11,6 +11,7 @@ import {
   Bot,
   User,
   Check,
+  FileCheck,
 } from "lucide-react";
 import {
   SITE_CONFIG,
@@ -142,32 +143,32 @@ export default function HomePage() {
                   Contrate seu endereço rapidamente
                 </span>
                 <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-neutral-950 mt-2">
-                  Planos de Endereço Fiscal, a partir de R$ 24,90/mês
+                  Endereço Fiscal, planos a partir de R$ 54,90 por mês!
                 </h2>
                 <p className="text-neutral-600 mt-3 text-base">
-                  Fortaleça sua presença empresarial com localização estratégica na SC-401 em
-                  Florianópolis para suas necessidades de correspondência, abertura de CNPJ e
-                  Inscrição Estadual.
+                  Endereço Fiscal: Fortaleça sua presença empresarial com nossos Planos de Endereço Fiscal.
+                  Localização estratégica em Florianópolis para suas necessidades de registro e tributação.
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+              {/* 2 Focused Plans Matching Client Reality */}
+              <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
                 {FISCAL_PLANS.map((plan) => (
                   <div
                     key={plan.id}
-                    className={`rounded-3xl p-7 flex flex-col justify-between transition-all duration-300 ease-out group relative overflow-hidden transform hover:-translate-y-2 hover:shadow-2xl bg-white ${
+                    className={`rounded-3xl p-8 sm:p-9 flex flex-col justify-between transition-all duration-300 ease-out group relative overflow-hidden transform hover:-translate-y-2 hover:shadow-2xl bg-white ${
                       plan.highlight
                         ? "border-2 border-black shadow-xl ring-2 ring-black/5"
                         : "border border-neutral-200/90 hover:border-[#6EC1E4] hover:ring-2 hover:ring-[#6EC1E4]/30 shadow-2xs"
                     }`}
                   >
                     {/* Top Ambient Glow on Hover */}
-                    <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-[#6EC1E4] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                    <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-transparent via-[#6EC1E4] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
                     <div>
                       <div className="flex items-center justify-between gap-2 mb-4">
                         <span
-                          className={`inline-block px-3 py-1 rounded-full text-[11px] font-semibold transition ${
+                          className={`inline-block px-3 py-1 rounded-full text-xs font-semibold transition ${
                             plan.highlight
                               ? "bg-black text-white"
                               : "bg-neutral-100 text-neutral-700 group-hover:bg-[#6EC1E4]/20 group-hover:text-[#0369A1]"
@@ -177,21 +178,21 @@ export default function HomePage() {
                         </span>
                       </div>
 
-                      <h3 className="text-lg font-bold text-neutral-950 group-hover:text-black transition">
+                      <h3 className="text-2xl font-bold text-neutral-950 group-hover:text-black transition">
                         {plan.name}
                       </h3>
-                      <p className="text-xs text-neutral-500 mt-1.5 min-h-[34px]">{plan.subtitle}</p>
+                      <p className="text-sm text-neutral-500 mt-1 min-h-[40px]">{plan.subtitle}</p>
 
                       <div className="my-6 pb-6 border-b border-neutral-100">
-                        <span className="text-4xl font-bold text-neutral-950">{plan.price}</span>
-                        <span className="text-sm text-neutral-500 font-normal">{plan.period}</span>
+                        <span className="text-4xl sm:text-5xl font-bold text-neutral-950">{plan.price}</span>
+                        <span className="text-base text-neutral-500 font-normal">{plan.period}</span>
                       </div>
 
-                      <ul className="space-y-3 text-sm text-neutral-700 mb-8">
+                      <ul className="space-y-3.5 text-sm sm:text-base text-neutral-700 mb-8">
                         {plan.features.map((feat, i) => (
-                          <li key={i} className="flex items-start gap-2.5">
-                            <span className="w-4 h-4 rounded-full bg-[#61CE70]/20 text-[#15803D] flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-110 transition-transform">
-                              <Check className="w-3 h-3" />
+                          <li key={i} className="flex items-start gap-3">
+                            <span className="w-5 h-5 rounded-full bg-[#61CE70]/20 text-[#15803D] flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-110 transition-transform">
+                              <Check className="w-3.5 h-3.5" />
                             </span>
                             <span>{feat}</span>
                           </li>
@@ -205,7 +206,7 @@ export default function HomePage() {
                       )}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`w-full py-3.5 px-4 rounded-full font-medium text-sm text-center flex items-center justify-center gap-2 transition-all duration-200 group-hover:shadow-md ${
+                      className={`w-full py-4 px-6 rounded-full font-semibold text-base text-center flex items-center justify-center gap-2 transition-all duration-200 group-hover:shadow-md cursor-pointer ${
                         plan.highlight
                           ? "bg-black hover:bg-neutral-800 text-white"
                           : "bg-neutral-100 hover:bg-black hover:text-white text-neutral-900 group-hover:bg-black group-hover:text-white"
@@ -216,6 +217,52 @@ export default function HomePage() {
                     </a>
                   </div>
                 ))}
+              </div>
+
+              {/* Informative Educational Section: O que é Endereço Fiscal & Inscrição Estadual */}
+              <div className="max-w-4xl mx-auto bg-white rounded-3xl p-8 sm:p-10 border border-neutral-200 shadow-sm">
+                <div className="flex items-center gap-2.5 text-xs font-semibold uppercase tracking-widest text-[#0284C7] mb-2">
+                  <FileCheck className="w-4 h-4" />
+                  <span>Guia Informativo Prático</span>
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-neutral-950 mb-3">
+                  Entenda como funciona o Endereço Fiscal e a Inscrição Estadual
+                </h3>
+                <p className="text-sm sm:text-base text-neutral-600 mb-8 leading-relaxed">
+                  Trabalhamos com total clareza e sem burocracia para que sua empresa esteja 100% legalizada em Florianópolis:
+                </p>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {/* Card 1: Endereço Fiscal */}
+                  <div className="bg-[#F8FAFC] rounded-2xl p-6 border border-neutral-200/80 space-y-3">
+                    <div className="flex items-center gap-2 text-neutral-950 font-bold text-base">
+                      <span className="w-2 h-2 rounded-full bg-[#0284C7]" />
+                      <h4 className="font-semibold">O que é Endereço Fiscal?</h4>
+                    </div>
+                    <p className="text-sm text-neutral-600 leading-relaxed">
+                      É o endereço oficial utilizado para o registro legal da empresa no CNPJ, Junta Comercial (JUCESC) e Prefeitura de Florianópolis.
+                    </p>
+                    <ul className="text-xs text-neutral-500 space-y-1.5 pt-1 border-t border-neutral-200/60">
+                      <li>• <strong>Para quem:</strong> Prestadores de serviços, consultorias, desenvolvedores, profissionais liberais e holdings.</li>
+                      <li>• <strong>Vantagem:</strong> Protege o endereço da sua casa e evita o custo de alugar uma sala física só para ter CNPJ.</li>
+                    </ul>
+                  </div>
+
+                  {/* Card 2: Inscrição Estadual */}
+                  <div className="bg-[#F8FAFC] rounded-2xl p-6 border border-neutral-200/80 space-y-3">
+                    <div className="flex items-center gap-2 text-neutral-950 font-bold text-base">
+                      <span className="w-2 h-2 rounded-full bg-[#16A34A]" />
+                      <h4 className="font-semibold">O que é Inscrição Estadual (IE)?</h4>
+                    </div>
+                    <p className="text-sm text-neutral-600 leading-relaxed">
+                      É o registro tributário perante a Secretaria da Fazenda de SC (SEF-SC), necessário para recolhimento de ICMS.
+                    </p>
+                    <ul className="text-xs text-neutral-500 space-y-1.5 pt-1 border-t border-neutral-200/60">
+                      <li>• <strong>Para quem:</strong> Empresas de comércio físico ou e-commerce que vendem produtos e emitem nota fiscal mercantil.</li>
+                      <li>• <strong>No At Work SC:</strong> Nosso <strong>Plano 2</strong> é homologado e atende a todas as exigências estaduais para liberação da sua IE.</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
@@ -746,7 +793,7 @@ export default function HomePage() {
                   Traga sua empresa para a SC-401
                 </div>
                 <div className="text-xs text-neutral-500">
-                  Planos a partir de R$ 24,90/mês sem fiador.
+                  Planos a partir de R$ 54,90/mês sem fiador.
                 </div>
               </div>
               <a
