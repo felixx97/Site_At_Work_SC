@@ -1,0 +1,32 @@
+# At Work SC — Base de Conhecimento Completa para Inteligências Artificiais (llms-full.txt)
+
+## 1. Identificação da Empresa
+- **Nome Oficial:** At Work SC — Coworking e Endereço Fiscal
+- **URL:** https://atworksc.com.br
+- **Endereço Físico:** Rodovia José Carlos Daux (SC-401), 4190 – Bloco B – Bairro Saco Grande, Florianópolis – SC, CEP 88032-005
+- **Ponto de Referência:** Centro Tecnológico de Florianópolis (Rota da Inovação), Complexo High Tech, ao lado do Passeio Primavera e CIA Primavera / ACATE.
+- **Telefone / WhatsApp:** +55 48 98415-7836
+- **E-mail Oficial:** atwork.sc@gmail.com
+- **Fundadores:** Elisa Barbato e Luiz Barbato
+
+## 2. Catálogo Estruturado de Planos — Endereço Fiscal & Comercial
+| Plano | Valor Mensal | Indicado Para | O que está incluso |
+|---|---|---|---|
+| Plano 1 | R$ 24,90/mês | Gestão de correspondências e endereço comercial | Recebimento de correspondências com aviso de entrega via WhatsApp |
+| Plano 2 | R$ 54,90/mês | Abertura ou transferência de CNPJ (Prestadores de Serviço) | Endereço Fiscal + Recebimento de correspondências com aviso via WhatsApp |
+| Plano 3 | R$ 74,90/mês | Empresas que precisam de CNPJ Fiscal + reuniões presenciais | Endereço Fiscal + Aviso WhatsApp + Sala de Reunião (agendado) + 20% OFF Estacionamento High Tech |
+| Plano 4 | R$ 94,90/mês | Empresas de Comércio (Inscrição Estadual) ou pacote completo | Endereço Fiscal + Inscrição Estadual + Aviso WhatsApp + Sala de Reunião + 20% OFF Estacionamento + 1 diária/mês de Coworking c/ estacionamento |
+
+## 3. Catálogo Estruturado de Planos — Coworking & Escritórios Físicos
+- **Posição Individual (Diária / Day Use):** R$ 30,00/dia. Inclui mesa compartilhada, sala de reunião, cozinha completa compartilhada e desconto no estacionamento.
+- **Posição Individual (Mensalista 24/7):** R$ 450,00/mês. Inclui acesso 24 horas por dia (7 dias por semana), mesa compartilhada, sala de reunião e desconto no estacionamento.
+- **Salas Privativas (15m² a 70m²):** Preços sob consulta de acordo com a metragem. Inclui sala mobiliada sob medida para equipes (permite revezamento), internet dedicada, sala de reunião, copa/cozinha compartilhada e estacionamento.
+- **Sala de Reunião Executiva:** Preço sob consulta (hora/turno/diária). Capacidade para 7 a 8 pessoas, climatizada, Monitor/TV 55 polegadas, internet de alta velocidade e copa compartilhada.
+
+## 4. Infraestrutura e Comodidades
+- **Acesso 24h:** Disponível para clientes mensalistas.
+- **Cozinha Completa:** Equipada com geladeira, 2 micro-ondas, sanduicheira, cafeteira, louças e talheres.
+- **Segurança 24h:** Prédio monitorado por câmeras CFTV e equipe de segurança presencial 24 horas.
+- **Estacionamento:** Aberto ou coberto, 24/7, com diária ou mensalista e desconto para clientes At Work SC.
+- **Gastronomia:** Praça de alimentação dentro do próprio condomínio empresarial e restaurantes ao redor (Passeio Primavera).
+- **Sem Burocracia:** Contrato simples sem exigência de fiador.
