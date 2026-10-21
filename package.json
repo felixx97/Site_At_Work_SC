@@ -4,25 +4,25 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && node -e \"const fs=require('fs'); if(fs.existsSync('out')) fs.cpSync('out', 'dist', {recursive:true});\"",
+    "build": "next build && node scripts/copy-dist.js",
     "start": "next start",
     "lint": "eslint"
   },
   "dependencies": {
-    "framer-motion": "^14.5.0",
-    "lucide-react": "^1.61.0",
-    "next": "16.4.2",
-    "react": "19.3.0",
-    "react-dom": "19.3.0"
-  },
-  "devDependencies": {
     "@tailwindcss/turbopack": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "16.4.2",
+    "framer-motion": "^14.5.0",
+    "lucide-react": "^1.61.0",
+    "next": "16.4.2",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "devDependencies": {
+    "eslint": "^9",
+    "eslint-config-next": "16.4.2"
   }
 }
