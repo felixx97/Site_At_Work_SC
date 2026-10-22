@@ -95,25 +95,14 @@ export default function Navbar({ onResetToHuman, onOpenBooking }: NavbarProps) {
         </nav>
 
         {/* Action Buttons */}
-        <div className="flex items-center gap-2.5 sm:gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
           <button
             onClick={() => onOpenBooking("Visita ao Espaço At Work SC")}
-            className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-black hover:bg-neutral-800 text-white font-medium text-sm transition cursor-pointer shadow-sm"
+            className="inline-flex items-center gap-1.5 sm:gap-2 px-3.5 py-2 sm:px-5 sm:py-2.5 rounded-full bg-black hover:bg-neutral-800 text-white font-medium text-xs sm:text-sm transition cursor-pointer shadow-sm active:scale-95"
           >
-            <Calendar className="w-4 h-4 text-[#6EC1E4]" />
+            <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#6EC1E4]" />
             <span>Agendar Visita</span>
           </button>
-
-          <a
-            href={`https://wa.me/${SITE_CONFIG.contact.whatsappNumber}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="sm:hidden inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-[#16A34A] text-white text-xs font-semibold shadow-xs"
-            aria-label="Falar no WhatsApp"
-          >
-            <Phone className="w-3.5 h-3.5" />
-            <span>WhatsApp</span>
-          </a>
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
