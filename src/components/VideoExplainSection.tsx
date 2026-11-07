@@ -87,8 +87,8 @@ export default function VideoExplainSection() {
       title: "Ambientes Mobiliados com Acesso 24 Horas p/ Mensalistas",
       subtitle:
         "Estações confortáveis e salas privativas de 15m² a 70m² que permitem revezamento da sua equipe sem custos de condomínio ou IPTU.",
-      image: "/images/ai/hero-coworking-atwork.jpg",
-      tag: "Espaço At Work SC · Estações Modernas",
+      image: "/images/original/Atworkcoworking.jpg",
+      tag: "Foto Real · Espaço At Work SC",
       highlight: "Salas de 15m² a 70m² com revezamento de equipe, ar-condicionado e sem fiador",
     },
     {

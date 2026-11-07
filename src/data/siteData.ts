@@ -188,12 +188,28 @@ export const COWORKING_PLANS: PlanItem[] = [
 
 export const SPACE_GALLERY = [
   {
-    id: "ai-lounge",
-    title: "Hub Executivo na Rota da Inovação (SC-401)",
-    category: "Visão Conceitual & Atmosfera",
-    image: "/images/ai/hero-coworking-sc401.jpg",
-    description: "Ambiente projetado para máxima produtividade ao lado do Passeio Primavera.",
-    isReal: false,
+    id: "real-coworking-hero",
+    title: "Coworking & Estações Compartilhadas na SC-401",
+    category: "Foto Real do Espaço",
+    image: "/images/original/Atworkcoworking.jpg",
+    description: "Ambiente amplo, moderno e climatizado com internet de alta velocidade ao lado do Passeio Primavera.",
+    isReal: true,
+  },
+  {
+    id: "real-sala-privativa-1",
+    title: "Exemplo de Sala Privativa Mobiliada p/ Equipes",
+    category: "Salas Privativas (15m² a 70m²)",
+    image: "/images/original/IMG_4037.jpg",
+    description: "Configuração com múltiplas estações de trabalho, climatização exclusiva e pronta para operar com revezamento de equipe.",
+    isReal: true,
+  },
+  {
+    id: "real-sala-privativa-2",
+    title: "Exemplo de Escritório Privativo Climatizado",
+    category: "Salas Privativas (15m² a 70m²)",
+    image: "/images/original/IMG_4039.jpg",
+    description: "Espaço privativo com iluminação natural, mobiliário ergonômico, internet dedicada e acesso 24/7.",
+    isReal: true,
   },
   {
     id: "real-reuniao",
@@ -210,14 +226,6 @@ export const SPACE_GALLERY = [
     image: "/images/original/espaco-01.jpg",
     description: "Mobiliário moderno, iluminação planejada e cadeiras ergonômicas.",
     isReal: true,
-  },
-  {
-    id: "ai-private",
-    title: "Salas Privativas para Times (15m² a 70m²)",
-    category: "Configuração p/ Equipes",
-    image: "/images/ai/private-office-tech.jpg",
-    description: "Espaços sob medida com possibilidade de revezamento híbrido da equipe.",
-    isReal: false,
   },
   {
     id: "real-cozinha",
@@ -335,7 +343,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: "4 min de leitura",
     date: "21 Out 2026",
     author: "Equipe At Work SC",
-    coverImage: "/images/ai/hero-coworking-sc401.jpg",
+    coverImage: "/images/original/Atworkcoworking.jpg",
     keyTakeaways: [
       "Florianópolis oferece incentivos e ecossistema tecnológico de ponta na SC-401.",
       "Prestadores de serviço podem ativar o CNPJ a partir de R$ 54,90/mês sem alugar sala física.",
@@ -378,7 +386,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: "5 min de leitura",
     date: "12 Out 2026",
     author: "Equipe At Work SC",
-    coverImage: "/images/ai/private-office-tech.jpg",
+    coverImage: "/images/original/IMG_4037.jpg",
     keyTakeaways: [
       "Um escritório tradicional exige de R$ 15.000 a R$ 40.000 apenas em setup inicial (móveis, ar-condicionado, caução e reforma).",
       "Nas salas privativas da At Work SC (15 a 70m²), o contrato não exige fiador e a internet dedicada já está pronta.",

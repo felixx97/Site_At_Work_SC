@@ -356,6 +356,78 @@ export default function HomePage() {
                   </div>
                 ))}
               </div>
+
+              {/* Exemplos Reais de Salas Privativas (IMG_4037 & IMG_4039) */}
+              <div className="mt-12 rounded-3xl bg-[#F8FAFC] border border-neutral-200/90 p-6 sm:p-8 lg:p-10">
+                <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
+                  <div>
+                    <span className="text-xs font-semibold uppercase tracking-widest text-[#0284C7]">
+                      Espaço Privativo · 15m² a 70m²
+                    </span>
+                    <h3 className="text-xl sm:text-2xl font-bold text-neutral-950 mt-1">
+                      Exemplos de Salas Privativas Mobiliadas
+                    </h3>
+                    <p className="text-sm text-neutral-600 mt-1 max-w-2xl">
+                      Conheça exemplos reais de configurações de salas privativas prontas para uso, climatizadas e com mobiliário completo para equipes de diferentes portes.
+                    </p>
+                  </div>
+                  <a
+                    href={`https://wa.me/${SITE_CONFIG.contact.whatsappNumber}?text=${encodeURIComponent(
+                      "Olá! Vi os exemplos de Salas Privativas no site da At Work SC e gostaria de consultar tamanhos e valores disponíveis."
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-black hover:bg-neutral-800 text-white text-xs sm:text-sm font-medium transition self-start"
+                  >
+                    <span>Consultar Salas Disponíveis</span>
+                    <ArrowRight className="w-4 h-4 text-[#6EC1E4]" />
+                  </a>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="group rounded-2xl overflow-hidden bg-white border border-neutral-200 shadow-2xs flex flex-col">
+                    <div className="relative h-64 sm:h-72 overflow-hidden">
+                      <img
+                        src="/images/original/IMG_4037.jpg"
+                        alt="Exemplo de Sala Privativa para Equipes na At Work SC"
+                        className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                      />
+                      <span className="absolute top-3 left-3 px-3 py-1 rounded-full bg-black/80 text-white text-xs font-medium backdrop-blur-xs">
+                        Exemplo de Sala Privativa · Múltiplas Posições
+                      </span>
+                    </div>
+                    <div className="p-4 sm:p-5">
+                      <h4 className="font-bold text-neutral-950 text-sm sm:text-base">
+                        Configuração para Equipes & Operação Híbrida
+                      </h4>
+                      <p className="text-xs sm:text-sm text-neutral-600 mt-1">
+                        Estações de trabalho individuais, climatização exclusiva, tomadas integradas nas mesas e acesso 24/7.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="group rounded-2xl overflow-hidden bg-white border border-neutral-200 shadow-2xs flex flex-col">
+                    <div className="relative h-64 sm:h-72 overflow-hidden">
+                      <img
+                        src="/images/original/IMG_4039.jpg"
+                        alt="Exemplo de Escritório Privativo Climatizado na At Work SC"
+                        className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                      />
+                      <span className="absolute top-3 left-3 px-3 py-1 rounded-full bg-black/80 text-white text-xs font-medium backdrop-blur-xs">
+                        Exemplo de Sala Privativa · Mesa Compartilhada
+                      </span>
+                    </div>
+                    <div className="p-4 sm:p-5">
+                      <h4 className="font-bold text-neutral-950 text-sm sm:text-base">
+                        Escritório Privativo com Iluminação Natural
+                      </h4>
+                      <p className="text-xs sm:text-sm text-neutral-600 mt-1">
+                        Ambiente reservado, mobiliado com cadeiras ergonômicas, armário de apoio, ar-condicionado e internet dedicada.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </section>
 

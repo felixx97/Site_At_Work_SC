@@ -40,13 +40,14 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
+      { url: "/favicon.ico", sizes: "any" },
       { url: "/images/original/logo-square.png", type: "image/png" },
     ],
     apple: [
       { url: "/images/original/logo-square.png" },
     ],
     shortcut: [
-      { url: "/images/original/logo-square.png" },
+      { url: "/favicon.ico" },
     ],
   },
 };

@@ -25,8 +25,7 @@ interface HeroCarouselProps {
 export default function HeroCarousel({ onOpenBooking }: HeroCarouselProps) {
   // Desktop Slides State
   const [activeSlide, setActiveSlide] = useState(0);
-  const [hasInteracted, setHasInteracted] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
+  const [isDesktopPaused, setIsDesktopPaused] = useState(false);
 
   // Mobile Cinematic Video Hero State
   const [activeMobileSlide, setActiveMobileSlide] = useState(0);
@@ -78,7 +77,7 @@ export default function HeroCarousel({ onOpenBooking }: HeroCarouselProps) {
         label: "Agendar Visita Presencial",
         service: "Visita Guiada · Coworking & Salas Privativas",
       },
-      image: "/images/ai/hero-coworking-atwork.jpg",
+      image: "/images/original/Atworkcoworking.jpg",
       imageCaption: "Espaço At Work SC · Estações modernas, salas privativas e reuniões na SC-401",
     },
   ];
@@ -156,18 +155,19 @@ export default function HeroCarousel({ onOpenBooking }: HeroCarouselProps) {
     },
   ];
 
-  // Desktop Autoplay timer
+  // Slide Rotation Duration (4 seconds per slide)
+  const SLIDE_DURATION_MS = 4000;
+
+  // Desktop Autoplay timer (4 seconds per slide)
   useEffect(() => {
-    if (hasInteracted || isHovered) return;
+    if (isDesktopPaused) return;
     const timer = setInterval(() => {
       setActiveSlide((prev) => (prev + 1) % slides.length);
-    }, 7500);
+    }, SLIDE_DURATION_MS);
     return () => clearInterval(timer);
-  }, [hasInteracted, isHovered, slides.length]);
+  }, [isDesktopPaused, activeSlide, slides.length]);
 
-  // Mobile Progress & Slide Rotation (6 seconds per slide with smooth fill)
-  const SLIDE_DURATION_MS = 6000;
-
+  // Mobile Progress & Slide Rotation (4 seconds per slide with smooth fill)
   useEffect(() => {
     if (isMobilePaused) return;
 
@@ -188,17 +188,14 @@ export default function HeroCarousel({ onOpenBooking }: HeroCarouselProps) {
 
   const handleSelectSlide = (index: number) => {
     setActiveSlide(index);
-    setHasInteracted(true);
   };
 
   const handlePrevSlide = () => {
     setActiveSlide((prev) => (prev - 1 + slides.length) % slides.length);
-    setHasInteracted(true);
   };
 
   const handleNextSlide = () => {
     setActiveSlide((prev) => (prev + 1) % slides.length);
-    setHasInteracted(true);
   };
 
   const handleMobileSelect = (index: number) => {
@@ -419,8 +416,6 @@ export default function HeroCarousel({ onOpenBooking }: HeroCarouselProps) {
           Preserved intact on screens >= 1024px
       ========================================================================== */}
       <section
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
         className="hidden lg:block relative bg-[#F8FAFC] border-b border-neutral-200/80 overflow-hidden"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-18">
@@ -452,12 +447,23 @@ export default function HeroCarousel({ onOpenBooking }: HeroCarouselProps) {
             </div>
 
             <div className="flex items-center gap-3 text-xs text-neutral-500">
-              {hasInteracted && (
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-neutral-200/60 text-neutral-600 text-[11px]">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#16A34A]" />
-                  Pausado para sua leitura
-                </span>
-              )}
+              <button
+                onClick={() => setIsDesktopPaused(!isDesktopPaused)}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-neutral-200/70 hover:bg-neutral-300/70 border border-neutral-300/60 text-neutral-700 font-medium text-xs transition cursor-pointer active:scale-95"
+                aria-label={isDesktopPaused ? "Continuar rotação automática" : "Pausar rotação automática"}
+              >
+                {isDesktopPaused ? (
+                  <>
+                    <Play className="w-3.5 h-3.5 text-[#16A34A]" />
+                    <span>Continuar</span>
+                  </>
+                ) : (
+                  <>
+                    <Pause className="w-3.5 h-3.5 text-[#0284C7]" />
+                    <span>Pausar</span>
+                  </>
+                )}
+              </button>
               <div className="flex items-center gap-1.5 text-xs text-neutral-500">
                 <MapPin className="w-3.5 h-3.5 text-[#0284C7] shrink-0" />
                 <span>SC-401 · Próximo ao Passeio Primavera</span>
