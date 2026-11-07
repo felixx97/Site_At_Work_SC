@@ -235,30 +235,6 @@ export const SPACE_GALLERY = [
     description: "Equipada com geladeira, dois micro-ondas, sanduicheira, cafeteira, louças e talheres.",
     isReal: true,
   },
-  {
-    id: "real-cowork-2",
-    title: "Ambiente Colaborativo & Silencioso",
-    category: "Foto Real do Espaço",
-    image: "/images/original/coworking-mesa.jpeg",
-    description: "Perfeito para foco individual ou integração com outros profissionais de tecnologia e negócios.",
-    isReal: true,
-  },
-  {
-    id: "real-espaco-3",
-    title: "Infraestrutura Pronta para Crescer",
-    category: "Foto Real do Espaço",
-    image: "/images/original/espaco-03.jpg",
-    description: "Salas climatizadas com internet dedicada e acesso 24 horas para mensalistas.",
-    isReal: true,
-  },
-  {
-    id: "real-cozinha-2",
-    title: "Área de Descompressão & Café",
-    category: "Foto Real do Espaço",
-    image: "/images/original/cozinha-02.jpg",
-    description: "Espaço acolhedor para pausas estratégicas e networking diário.",
-    isReal: true,
-  },
 ];
 
 export const BENEFITS = [

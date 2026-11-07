@@ -37,6 +37,11 @@ export default function HomePage() {
   const [galleryFilter, setGalleryFilter] = useState<"all" | "real" | "concept">("real");
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
   const [selectedArticle, setSelectedArticle] = useState<BlogPost | null>(null);
+  const [lightboxImage, setLightboxImage] = useState<{
+    src: string;
+    title: string;
+    description?: string;
+  } | null>(null);
 
   const handleOpenBooking = (service?: string) => {
     if (service) setBookingService(service);
@@ -107,28 +112,76 @@ export default function HomePage() {
 
                 <div className="lg:col-span-6 grid grid-cols-2 gap-4">
                   <div className="space-y-4">
-                    <img
-                      src="/images/original/espaco-03.jpg"
-                      alt="Ambiente At Work SC Florianópolis"
-                      className="w-full h-56 object-cover rounded-2xl border border-neutral-200"
-                    />
-                    <img
-                      src="/images/original/cozinha-01.jpg"
-                      alt="Cozinha Completa At Work SC"
-                      className="w-full h-44 object-cover rounded-2xl border border-neutral-200"
-                    />
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setLightboxImage({
+                          src: "/images/original/espaco-03.jpg",
+                          title: "Ambiente At Work SC · Florianópolis",
+                          description: "Estações de trabalho e infraestrutura moderna na SC-401.",
+                        })
+                      }
+                      className="block w-full overflow-hidden rounded-2xl border border-neutral-200 group cursor-zoom-in"
+                    >
+                      <img
+                        src="/images/original/espaco-03.jpg"
+                        alt="Ambiente At Work SC Florianópolis"
+                        className="w-full h-56 object-cover group-hover:scale-105 transition duration-500"
+                      />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setLightboxImage({
+                          src: "/images/original/cozinha-01.jpg",
+                          title: "Copa & Cozinha Completa",
+                          description: "Equipada com geladeira, dois micro-ondas, cafeteira e louças.",
+                        })
+                      }
+                      className="block w-full overflow-hidden rounded-2xl border border-neutral-200 group cursor-zoom-in"
+                    >
+                      <img
+                        src="/images/original/cozinha-01.jpg"
+                        alt="Cozinha Completa At Work SC"
+                        className="w-full h-44 object-cover group-hover:scale-105 transition duration-500"
+                      />
+                    </button>
                   </div>
                   <div className="space-y-4 pt-6">
-                    <img
-                      src="/images/original/sala-reuniao.jpeg"
-                      alt="Sala de Reunião At Work SC"
-                      className="w-full h-44 object-cover rounded-2xl border border-neutral-200"
-                    />
-                    <img
-                      src="/images/original/espaco-01.jpg"
-                      alt="Coworking SC-401"
-                      className="w-full h-56 object-cover rounded-2xl border border-neutral-200"
-                    />
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setLightboxImage({
+                          src: "/images/original/sala-reuniao.jpeg",
+                          title: "Sala de Reunião Climatizada (TV 55\")",
+                          description: "Capacidade para até 8 pessoas com monitor 4K de 55 polegadas.",
+                        })
+                      }
+                      className="block w-full overflow-hidden rounded-2xl border border-neutral-200 group cursor-zoom-in"
+                    >
+                      <img
+                        src="/images/original/sala-reuniao.jpeg"
+                        alt="Sala de Reunião At Work SC"
+                        className="w-full h-44 object-cover group-hover:scale-105 transition duration-500"
+                      />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setLightboxImage({
+                          src: "/images/original/espaco-01.jpg",
+                          title: "Estações de Trabalho & Escritórios",
+                          description: "Mobiliário moderno, iluminação planejada e cadeiras ergonômicas na SC-401.",
+                        })
+                      }
+                      className="block w-full overflow-hidden rounded-2xl border border-neutral-200 group cursor-zoom-in"
+                    >
+                      <img
+                        src="/images/original/espaco-01.jpg"
+                        alt="Coworking SC-401"
+                        className="w-full h-56 object-cover group-hover:scale-105 transition duration-500"
+                      />
+                    </button>
                   </div>
                 </div>
               </div>
@@ -385,7 +438,17 @@ export default function HomePage() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="group rounded-2xl overflow-hidden bg-white border border-neutral-200 shadow-2xs flex flex-col">
+                  <div
+                    onClick={() =>
+                      setLightboxImage({
+                        src: "/images/original/IMG_4037.jpg",
+                        title: "Configuração para Equipes & Operação Híbrida",
+                        description:
+                          "Estações de trabalho individuais, climatização exclusiva, tomadas integradas nas mesas e acesso 24/7.",
+                      })
+                    }
+                    className="group rounded-2xl overflow-hidden bg-white border border-neutral-200 shadow-2xs hover:shadow-md transition flex flex-col cursor-zoom-in"
+                  >
                     <div className="relative h-64 sm:h-72 overflow-hidden">
                       <img
                         src="/images/original/IMG_4037.jpg"
@@ -394,6 +457,9 @@ export default function HomePage() {
                       />
                       <span className="absolute top-3 left-3 px-3 py-1 rounded-full bg-black/80 text-white text-xs font-medium backdrop-blur-xs">
                         Exemplo de Sala Privativa · Múltiplas Posições
+                      </span>
+                      <span className="absolute bottom-3 right-3 px-2.5 py-1 rounded-full bg-black/70 text-white text-[11px] font-medium opacity-0 group-hover:opacity-100 transition">
+                        Clique para ampliar
                       </span>
                     </div>
                     <div className="p-4 sm:p-5">
@@ -406,7 +472,17 @@ export default function HomePage() {
                     </div>
                   </div>
 
-                  <div className="group rounded-2xl overflow-hidden bg-white border border-neutral-200 shadow-2xs flex flex-col">
+                  <div
+                    onClick={() =>
+                      setLightboxImage({
+                        src: "/images/original/IMG_4039.jpg",
+                        title: "Escritório Privativo com Iluminação Natural",
+                        description:
+                          "Ambiente reservado, mobiliado com cadeiras ergonômicas, armário de apoio, ar-condicionado e internet dedicada.",
+                      })
+                    }
+                    className="group rounded-2xl overflow-hidden bg-white border border-neutral-200 shadow-2xs hover:shadow-md transition flex flex-col cursor-zoom-in"
+                  >
                     <div className="relative h-64 sm:h-72 overflow-hidden">
                       <img
                         src="/images/original/IMG_4039.jpg"
@@ -415,6 +491,9 @@ export default function HomePage() {
                       />
                       <span className="absolute top-3 left-3 px-3 py-1 rounded-full bg-black/80 text-white text-xs font-medium backdrop-blur-xs">
                         Exemplo de Sala Privativa · Mesa Compartilhada
+                      </span>
+                      <span className="absolute bottom-3 right-3 px-2.5 py-1 rounded-full bg-black/70 text-white text-[11px] font-medium opacity-0 group-hover:opacity-100 transition">
+                        Clique para ampliar
                       </span>
                     </div>
                     <div className="p-4 sm:p-5">
@@ -478,7 +557,14 @@ export default function HomePage() {
                 {filteredGallery.map((item) => (
                   <div
                     key={item.id}
-                    className="group rounded-2xl overflow-hidden bg-white border border-neutral-200 shadow-2xs hover:shadow-md transition flex flex-col"
+                    onClick={() =>
+                      setLightboxImage({
+                        src: item.image,
+                        title: item.title,
+                        description: item.description,
+                      })
+                    }
+                    className="group rounded-2xl overflow-hidden bg-white border border-neutral-200 shadow-2xs hover:shadow-md transition flex flex-col cursor-zoom-in"
                   >
                     <div className="relative h-60 overflow-hidden">
                       <img
@@ -486,6 +572,9 @@ export default function HomePage() {
                         alt={item.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
                       />
+                      <span className="absolute bottom-3 right-3 px-2.5 py-1 rounded-full bg-black/70 text-white text-[11px] font-medium opacity-0 group-hover:opacity-100 transition">
+                        Clique para ampliar
+                      </span>
                     </div>
                     <div className="p-5">
                       <h3 className="font-bold text-neutral-950 text-base">{item.title}</h3>
@@ -878,6 +967,59 @@ export default function HomePage() {
               >
                 Falar no WhatsApp
               </a>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ================= IMAGE LIGHTBOX MODAL ================= */}
+      {lightboxImage && (
+        <div
+          onClick={() => setLightboxImage(null)}
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/85 backdrop-blur-sm animate-in fade-in duration-200 cursor-zoom-out"
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="relative max-w-5xl w-full bg-neutral-950 rounded-3xl overflow-hidden border border-white/15 shadow-2xl cursor-default"
+          >
+            <button
+              type="button"
+              onClick={() => setLightboxImage(null)}
+              className="absolute top-4 right-4 z-10 px-3.5 py-1.5 rounded-full bg-black/75 hover:bg-black text-white text-xs sm:text-sm font-semibold border border-white/20 transition cursor-pointer"
+            >
+              Fechar ✕
+            </button>
+
+            <div className="max-h-[78vh] w-full flex items-center justify-center bg-black overflow-hidden">
+              <img
+                src={lightboxImage.src}
+                alt={lightboxImage.title}
+                className="max-h-[78vh] w-auto max-w-full object-contain"
+              />
+            </div>
+
+            <div className="p-4 sm:p-6 bg-neutral-950 text-white border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div>
+                <h3 className="font-bold text-base sm:text-lg text-white">
+                  {lightboxImage.title}
+                </h3>
+                {lightboxImage.description && (
+                  <p className="text-xs sm:text-sm text-neutral-300 mt-0.5">
+                    {lightboxImage.description}
+                  </p>
+                )}
+              </div>
+              <button
+                type="button"
+                onClick={() => {
+                  const title = lightboxImage.title;
+                  setLightboxImage(null);
+                  handleOpenBooking(`Visita Presencial · ${title}`);
+                }}
+                className="px-5 py-2.5 rounded-full bg-white hover:bg-neutral-200 text-neutral-950 font-semibold text-xs sm:text-sm transition shrink-0 cursor-pointer"
+              >
+                Agendar Visita
+              </button>
             </div>
           </div>
         </div>

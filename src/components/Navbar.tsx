@@ -106,7 +106,7 @@ export default function Navbar({ onResetToHuman, onOpenBooking }: NavbarProps) {
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-xl border border-neutral-200 text-neutral-800 hover:bg-neutral-100"
+            className="lg:hidden p-2 rounded-xl border border-neutral-200 text-neutral-800 hover:bg-neutral-100 cursor-pointer"
             aria-label="Menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}

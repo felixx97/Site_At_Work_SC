@@ -47,11 +47,11 @@ export default function HeroCarousel({ onOpenBooking }: HeroCarouselProps) {
         "Opção com Inscrição Estadual (ICMS) para Comércio",
       ],
       primaryCta: {
-        label: "Ver Planos de Endereço Fiscal",
+        label: "Planos de Endereço Fiscal",
         href: "#planos-fiscais",
       },
       secondaryCta: {
-        label: "Tirar Dúvida / Agendar",
+        label: "Agendar",
         service: "Consultoria · Endereço Fiscal",
       },
       image: "/images/original/fachada-recepcao.jpeg",
@@ -70,11 +70,11 @@ export default function HeroCarousel({ onOpenBooking }: HeroCarouselProps) {
         "Sala de reunião equipada com TV 55\" e cozinha completa",
       ],
       primaryCta: {
-        label: "Conhecer Planos de Coworking",
+        label: "Planos de Coworking",
         href: "#planos-coworking",
       },
       secondaryCta: {
-        label: "Agendar Visita Presencial",
+        label: "Agendar",
         service: "Visita Guiada · Coworking & Salas Privativas",
       },
       image: "/images/original/Atworkcoworking.jpg",
@@ -158,7 +158,7 @@ export default function HeroCarousel({ onOpenBooking }: HeroCarouselProps) {
   // Slide Rotation Duration (4 seconds per slide)
   const SLIDE_DURATION_MS = 4000;
 
-  // Desktop Autoplay timer (4 seconds per slide)
+  // Desktop Autoplay timer (single state: pauses on hover/selection, unpauses on mouse leave or button click)
   useEffect(() => {
     if (isDesktopPaused) return;
     const timer = setInterval(() => {
@@ -188,14 +188,17 @@ export default function HeroCarousel({ onOpenBooking }: HeroCarouselProps) {
 
   const handleSelectSlide = (index: number) => {
     setActiveSlide(index);
+    setIsDesktopPaused(true);
   };
 
   const handlePrevSlide = () => {
     setActiveSlide((prev) => (prev - 1 + slides.length) % slides.length);
+    setIsDesktopPaused(true);
   };
 
   const handleNextSlide = () => {
     setActiveSlide((prev) => (prev + 1) % slides.length);
+    setIsDesktopPaused(true);
   };
 
   const handleMobileSelect = (index: number) => {
@@ -252,13 +255,12 @@ export default function HeroCarousel({ onOpenBooking }: HeroCarouselProps) {
                     aria-label={`Ver slide ${idx + 1}`}
                   >
                     <div
-                      className={`h-full bg-white rounded-full transition-all duration-100 ${
-                        isActive
-                          ? "bg-gradient-to-r from-[#6EC1E4] to-white"
-                          : isPast
+                      className={`h-full bg-white rounded-full transition-all duration-100 ${isActive
+                        ? "bg-gradient-to-r from-[#6EC1E4] to-white"
+                        : isPast
                           ? "w-full opacity-80"
                           : "w-0"
-                      }`}
+                        }`}
                       style={{
                         width: isActive ? `${mobileProgress}%` : isPast ? "100%" : "0%",
                       }}
@@ -416,6 +418,8 @@ export default function HeroCarousel({ onOpenBooking }: HeroCarouselProps) {
           Preserved intact on screens >= 1024px
       ========================================================================== */}
       <section
+        onMouseEnter={() => setIsDesktopPaused(true)}
+        onMouseLeave={() => setIsDesktopPaused(false)}
         className="hidden lg:block relative bg-[#F8FAFC] border-b border-neutral-200/80 overflow-hidden"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-18">
@@ -424,22 +428,20 @@ export default function HeroCarousel({ onOpenBooking }: HeroCarouselProps) {
             <div className="inline-flex p-1 rounded-full bg-neutral-200/70 border border-neutral-300/60">
               <button
                 onClick={() => handleSelectSlide(0)}
-                className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition cursor-pointer ${
-                  activeSlide === 0
-                    ? "bg-black text-white shadow-sm"
-                    : "text-neutral-600 hover:text-black"
-                }`}
+                className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition cursor-pointer ${activeSlide === 0
+                  ? "bg-black text-white shadow-sm"
+                  : "text-neutral-600 hover:text-black"
+                  }`}
               >
                 <FileCheck className="w-4 h-4 text-[#6EC1E4]" />
                 <span>01. Endereço Fiscal</span>
               </button>
               <button
                 onClick={() => handleSelectSlide(1)}
-                className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition cursor-pointer ${
-                  activeSlide === 1
-                    ? "bg-black text-white shadow-sm"
-                    : "text-neutral-600 hover:text-black"
-                }`}
+                className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition cursor-pointer ${activeSlide === 1
+                  ? "bg-black text-white shadow-sm"
+                  : "text-neutral-600 hover:text-black"
+                  }`}
               >
                 <Building2 className="w-4 h-4 text-[#6EC1E4]" />
                 <span>02. Coworking & Salas</span>
@@ -448,7 +450,7 @@ export default function HeroCarousel({ onOpenBooking }: HeroCarouselProps) {
 
             <div className="flex items-center gap-3 text-xs text-neutral-500">
               <button
-                onClick={() => setIsDesktopPaused(!isDesktopPaused)}
+                onClick={() => setIsDesktopPaused((prev) => !prev)}
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-neutral-200/70 hover:bg-neutral-300/70 border border-neutral-300/60 text-neutral-700 font-medium text-xs transition cursor-pointer active:scale-95"
                 aria-label={isDesktopPaused ? "Continuar rotação automática" : "Pausar rotação automática"}
               >
