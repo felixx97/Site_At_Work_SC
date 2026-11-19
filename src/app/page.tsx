@@ -71,7 +71,7 @@ export default function HomePage() {
           <HeroCarousel onOpenBooking={handleOpenBooking} />
 
           {/* ================= FLORIANÓPOLIS / SOBRE NÓS EDITORIAL SECTION ================= */}
-          <section id="sobre" className="py-12 sm:py-16 lg:py-20 bg-white">
+          <section id="sobre" className="py-10 sm:py-14 bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                 <div className="lg:col-span-6 space-y-4 sm:space-y-5">
@@ -110,78 +110,22 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <div className="lg:col-span-6 grid grid-cols-2 gap-4">
-                  <div className="space-y-4">
-                    <button
-                      type="button"
-                      onClick={() =>
-                        setLightboxImage({
-                          src: "/images/original/espaco-03.jpg",
-                          title: "Ambiente At Work SC · Florianópolis",
-                          description: "Estações de trabalho e infraestrutura moderna na SC-401.",
-                        })
-                      }
-                      className="block w-full overflow-hidden rounded-2xl border border-neutral-200 group cursor-zoom-in"
+                <div className="lg:col-span-6 flex justify-center">
+                  <div className="h-[380px] sm:h-[420px] aspect-[9/16] rounded-3xl overflow-hidden bg-neutral-950 border border-neutral-200 shadow-xl relative">
+                    <video
+                      controls
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      preload="metadata"
+                      poster="/images/original/Atworkcoworking.jpg"
+                      className="w-full h-full object-cover"
                     >
-                      <img
-                        src="/images/original/espaco-03.jpg"
-                        alt="Ambiente At Work SC Florianópolis"
-                        className="w-full h-56 object-cover group-hover:scale-105 transition duration-500"
-                      />
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() =>
-                        setLightboxImage({
-                          src: "/images/original/cozinha-01.jpg",
-                          title: "Copa & Cozinha Completa",
-                          description: "Equipada com geladeira, dois micro-ondas, cafeteira e louças.",
-                        })
-                      }
-                      className="block w-full overflow-hidden rounded-2xl border border-neutral-200 group cursor-zoom-in"
-                    >
-                      <img
-                        src="/images/original/cozinha-01.jpg"
-                        alt="Cozinha Completa At Work SC"
-                        className="w-full h-44 object-cover group-hover:scale-105 transition duration-500"
-                      />
-                    </button>
-                  </div>
-                  <div className="space-y-4 pt-6">
-                    <button
-                      type="button"
-                      onClick={() =>
-                        setLightboxImage({
-                          src: "/images/original/sala-reuniao.jpeg",
-                          title: "Sala de Reunião Climatizada (TV 55\")",
-                          description: "Capacidade para até 8 pessoas com monitor 4K de 55 polegadas.",
-                        })
-                      }
-                      className="block w-full overflow-hidden rounded-2xl border border-neutral-200 group cursor-zoom-in"
-                    >
-                      <img
-                        src="/images/original/sala-reuniao.jpeg"
-                        alt="Sala de Reunião At Work SC"
-                        className="w-full h-44 object-cover group-hover:scale-105 transition duration-500"
-                      />
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() =>
-                        setLightboxImage({
-                          src: "/images/original/espaco-01.jpg",
-                          title: "Estações de Trabalho & Escritórios",
-                          description: "Mobiliário moderno, iluminação planejada e cadeiras ergonômicas na SC-401.",
-                        })
-                      }
-                      className="block w-full overflow-hidden rounded-2xl border border-neutral-200 group cursor-zoom-in"
-                    >
-                      <img
-                        src="/images/original/espaco-01.jpg"
-                        alt="Coworking SC-401"
-                        className="w-full h-56 object-cover group-hover:scale-105 transition duration-500"
-                      />
-                    </button>
+                      <source src="/Videos/atworkvideonew.mp4" type="video/mp4" />
+                      <source src="/videos/atworkvideonew.mp4" type="video/mp4" />
+                      Seu navegador não suporta a reprodução de vídeo.
+                    </video>
                   </div>
                 </div>
               </div>
@@ -529,8 +473,8 @@ export default function HomePage() {
                         PARCEIRO OFICIAL DE TECNOLOGIA
                       </span>
                       <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-neutral-200 text-neutral-800 text-[11px] font-semibold shadow-2xs">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#16A34A]" />
-                        Parceiro Tecnológico Oficial · Benefício Exclusivo Clientes At Work SC
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#16A34A] shrink-0" />
+                        <span>Parceiro Tecnológico Oficial · Benefício Exclusivo</span>
                       </span>
                     </div>
 
@@ -560,7 +504,7 @@ export default function HomePage() {
                     href="https://felixtec.com.br/?utm_source=atworksc&utm_medium=banner_parceiro&utm_campaign=beneficio_cliente"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group/mascot inline-flex items-center gap-3.5 px-4 py-3 rounded-2xl bg-white border border-neutral-200/90 hover:border-[#00d2ff] shadow-2xs transition self-start lg:self-center shrink-0"
+                    className="group/mascot inline-flex items-center gap-3.5 px-4 py-3 rounded-2xl bg-white border border-neutral-200/90 hover:border-[#00d2ff] shadow-2xs transition w-full sm:w-auto self-start lg:self-center shrink-0"
                     title="Conheça a FélixTec — Parceiro Oficial de Tecnologia"
                   >
                     <div className="w-12 h-12 rounded-xl bg-neutral-950 flex items-center justify-center shrink-0 border border-[#00d2ff]/40">
@@ -1104,7 +1048,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="flex flex-wrap items-center gap-5 text-neutral-300 text-sm">
+          <div className="flex flex-wrap items-center justify-center sm:justify-end gap-5 text-neutral-300 text-sm">
             <a href="#planos-fiscais" className="hover:text-white transition">
               End. Fiscal
             </a>
