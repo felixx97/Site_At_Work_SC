@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Jost, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { SITE_CONFIG, FISCAL_PLANS, COWORKING_PLANS, FAQ_ITEMS } from "@/data/siteData";
@@ -116,6 +117,19 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className="scroll-smooth" suppressHydrationWarning>
       <head>
+        {/* Google Tag (gtag.js) - Google Ads AW-16979116370 */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-16979116370"
+          strategy="afterInteractive"
+        />
+        <Script id="google-ads-gtag" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-16979116370');
+          `}
+        </Script>
         <link rel="help" type="text/plain" href="/llms.txt" title="LLM Context Summary" />
         <script
           type="application/ld+json"
