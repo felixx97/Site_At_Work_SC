@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import {
   ArrowRight,
   ChevronLeft,
@@ -10,13 +11,11 @@ import {
   Calendar,
   Building2,
   FileCheck,
-  Phone,
   Sparkles,
   Pause,
   Play,
   ShieldCheck,
 } from "lucide-react";
-import { SITE_CONFIG } from "@/data/siteData";
 
 interface HeroCarouselProps {
   onOpenBooking: (service?: string) => void;
@@ -25,6 +24,7 @@ interface HeroCarouselProps {
 export default function HeroCarousel({ onOpenBooking }: HeroCarouselProps) {
   // Desktop Slides State
   const [activeSlide, setActiveSlide] = useState(0);
+  const [slideDirection, setSlideDirection] = useState<1 | -1>(1);
   const [isDesktopPaused, setIsDesktopPaused] = useState(false);
 
   // Mobile Cinematic Video Hero State
@@ -162,6 +162,7 @@ export default function HeroCarousel({ onOpenBooking }: HeroCarouselProps) {
   useEffect(() => {
     if (isDesktopPaused) return;
     const timer = setInterval(() => {
+      setSlideDirection(1);
       setActiveSlide((prev) => (prev + 1) % slides.length);
     }, SLIDE_DURATION_MS);
     return () => clearInterval(timer);
@@ -187,16 +188,21 @@ export default function HeroCarousel({ onOpenBooking }: HeroCarouselProps) {
   }, [isMobilePaused, activeMobileSlide, mobileSlides.length]);
 
   const handleSelectSlide = (index: number) => {
-    setActiveSlide(index);
+    if (index !== activeSlide) {
+      setSlideDirection(index > activeSlide ? 1 : -1);
+      setActiveSlide(index);
+    }
     setIsDesktopPaused(true);
   };
 
   const handlePrevSlide = () => {
+    setSlideDirection(-1);
     setActiveSlide((prev) => (prev - 1 + slides.length) % slides.length);
     setIsDesktopPaused(true);
   };
 
   const handleNextSlide = () => {
+    setSlideDirection(1);
     setActiveSlide((prev) => (prev + 1) % slides.length);
     setIsDesktopPaused(true);
   };
@@ -270,116 +276,141 @@ export default function HeroCarousel({ onOpenBooking }: HeroCarouselProps) {
               })}
             </div>
 
-            {/* Top Micro Header: Live Location + Pause Toggle */}
+            {/* Top Micro Header: Live Location */}
             <div className="flex items-center justify-between text-xs text-neutral-300">
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-[11px] font-medium text-white/90">
                 <span className="w-2 h-2 rounded-full bg-[#16A34A] animate-pulse" />
                 <span>SC-401 · Próximo ao Passeio Primavera</span>
               </div>
-
-              <button
-                onClick={() => setIsMobilePaused(!isMobilePaused)}
-                className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-[11px] text-neutral-200 active:scale-95 transition cursor-pointer"
-                aria-label={isMobilePaused ? "Retomar rotação" : "Pausar leitura"}
-              >
-                {isMobilePaused ? (
-                  <>
-                    <Play className="w-3 h-3 text-[#61CE70]" />
-                    <span>Continuar</span>
-                  </>
-                ) : (
-                  <>
-                    <Pause className="w-3 h-3 text-[#6EC1E4]" />
-                    <span>Pausar</span>
-                  </>
-                )}
-              </button>
             </div>
           </div>
 
-          {/* Central Glassmorphic Narrative Card (Locked Height & Lower Blur) */}
+          {/* Central Glassmorphic Narrative Card with 3D Cinema Transition */}
           <div
             onTouchStart={() => setIsMobilePaused(true)}
             onTouchEnd={() => setIsMobilePaused(false)}
             className="my-auto py-2"
+            style={{ perspective: "1200px" }}
           >
-            <div
-              key={activeMobileSlide}
-              className="bg-black/30 backdrop-blur-[4px] border border-white/20 rounded-3xl p-5 sm:p-6 shadow-2xl flex flex-col justify-between h-[420px] sm:h-[440px] animate-in fade-in duration-300 ring-1 ring-white/10"
-            >
-              {/* Category Pill + Price Badge (Fixed Height) */}
-              <div className="flex items-center justify-between gap-2 shrink-0 h-8">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/15 text-white text-[11px] font-bold uppercase tracking-wider border border-white/15 shadow-xs">
-                  <Sparkles className="w-3 h-3 text-[#6EC1E4]" />
-                  <span>{currentMob.badge}</span>
-                </span>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeMobileSlide}
+                initial={{
+                  opacity: 0,
+                  rotateY: 16,
+                  scale: 0.92,
+                  x: 35,
+                }}
+                animate={{
+                  opacity: 1,
+                  rotateY: 0,
+                  scale: 1,
+                  x: 0,
+                }}
+                exit={{
+                  opacity: 0,
+                  rotateY: -14,
+                  scale: 0.94,
+                  x: -30,
+                }}
+                transition={{
+                  duration: 0.5,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                style={{ transformStyle: "preserve-3d" }}
+                className="bg-black/30 backdrop-blur-[4px] border border-white/20 rounded-3xl p-5 sm:p-6 shadow-2xl flex flex-col justify-between h-[420px] sm:h-[440px] ring-1 ring-white/10"
+              >
+                {/* Category Pill + Price Badge (Fixed Height) */}
+                <div className="flex items-center justify-between gap-2 shrink-0 h-8">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/15 text-white text-[11px] font-bold uppercase tracking-wider border border-white/15 shadow-xs">
+                    <Sparkles className="w-3 h-3 text-[#6EC1E4]" />
+                    <span>{currentMob.badge}</span>
+                  </span>
 
-                <span className="inline-flex items-center px-3 py-1 rounded-full bg-[#6EC1E4]/25 border border-[#6EC1E4]/50 text-white text-xs font-bold shadow-xs">
-                  {currentMob.priceHighlight}
-                </span>
-              </div>
-
-              {/* Title & Subtitle Container (Fixed Height) */}
-              <div className="space-y-1 shrink-0 pt-1">
-                <div className="h-[58px] sm:h-[62px] flex items-center">
-                  <h1 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight leading-[1.18] drop-shadow-[0_2px_4px_rgba(0,0,0,0.95)] line-clamp-2">
-                    {currentMob.title}
-                  </h1>
+                  <span className="inline-flex items-center px-3 py-1 rounded-full bg-[#6EC1E4]/25 border border-[#6EC1E4]/50 text-white text-xs font-bold shadow-xs">
+                    {currentMob.priceHighlight}
+                  </span>
                 </div>
 
-                <div className="h-[48px] sm:h-[52px] flex items-start">
-                  <p className="text-xs sm:text-[13px] text-neutral-100 leading-snug font-normal drop-shadow-[0_1px_3px_rgba(0,0,0,0.95)] line-clamp-3">
-                    {currentMob.subtitle}
-                  </p>
+                {/* Title & Subtitle Container (Fixed Height) */}
+                <div className="space-y-1 shrink-0 pt-1">
+                  <div className="h-[58px] sm:h-[62px] flex items-center">
+                    <h1 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight leading-[1.18] drop-shadow-[0_2px_4px_rgba(0,0,0,0.95)] line-clamp-2">
+                      {currentMob.title}
+                    </h1>
+                  </div>
+
+                  <div className="h-[48px] sm:h-[52px] flex items-start">
+                    <p className="text-xs sm:text-[13px] text-neutral-100 leading-snug font-normal drop-shadow-[0_1px_3px_rgba(0,0,0,0.95)] line-clamp-3">
+                      {currentMob.subtitle}
+                    </p>
+                  </div>
                 </div>
-              </div>
 
-              {/* Bullet Perks with Emerald Checks (Fixed Height) */}
-              <div className="h-[120px] flex flex-col justify-center border-t border-white/15 pt-2">
-                <ul className="space-y-2">
-                  {currentMob.perks.map((perk, i) => (
-                    <li key={i} className="flex items-start gap-2 text-xs text-white font-medium drop-shadow-[0_1px_2px_rgba(0,0,0,0.95)] leading-tight">
-                      <span className="w-4 h-4 rounded-full bg-[#16A34A]/60 text-[#61CE70] flex items-center justify-center shrink-0 mt-0.5 border border-[#16A34A]/80">
-                        <Check className="w-3 h-3 stroke-[2.5]" />
-                      </span>
-                      <span className="line-clamp-2">{perk}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Slide Quick Navigation Arrows (Fixed Height) */}
-              <div className="flex items-center justify-between pt-2 border-t border-white/15 text-[11px] text-neutral-300 shrink-0 h-9">
-                <span className="font-mono text-white/90">
-                  0{activeMobileSlide + 1} / 0{mobileSlides.length}
-                </span>
-
-                <div className="flex items-center gap-2">
-                  <button
-                    onClick={() => {
-                      setActiveMobileSlide(
-                        (prev) => (prev - 1 + mobileSlides.length) % mobileSlides.length
-                      );
-                      setMobileProgress(0);
-                    }}
-                    className="p-1.5 rounded-full bg-white/15 hover:bg-white/25 text-white transition active:scale-90"
-                    aria-label="Slide anterior"
-                  >
-                    <ChevronLeft className="w-4 h-4" />
-                  </button>
-                  <button
-                    onClick={() => {
-                      setActiveMobileSlide((prev) => (prev + 1) % mobileSlides.length);
-                      setMobileProgress(0);
-                    }}
-                    className="p-1.5 rounded-full bg-white/15 hover:bg-white/25 text-white transition active:scale-90"
-                    aria-label="Próximo slide"
-                  >
-                    <ChevronRight className="w-4 h-4" />
-                  </button>
+                {/* Bullet Perks with Emerald Checks (Fixed Height) */}
+                <div className="h-[120px] flex flex-col justify-center border-t border-white/15 pt-2">
+                  <ul className="space-y-2">
+                    {currentMob.perks.map((perk, i) => (
+                      <li key={i} className="flex items-start gap-2 text-xs text-white font-medium drop-shadow-[0_1px_2px_rgba(0,0,0,0.95)] leading-tight">
+                        <span className="w-4 h-4 rounded-full bg-[#16A34A]/60 text-[#61CE70] flex items-center justify-center shrink-0 mt-0.5 border border-[#16A34A]/80">
+                          <Check className="w-3 h-3 stroke-[2.5]" />
+                        </span>
+                        <span className="line-clamp-2">{perk}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              </div>
-            </div>
+
+                {/* Slide Quick Navigation: Pause Toggle + Prev/Next Arrows Grouped Together */}
+                <div className="flex items-center justify-between pt-2 border-t border-white/15 text-[11px] text-neutral-300 shrink-0 h-9">
+                  <span className="font-mono text-white/90">
+                    0{activeMobileSlide + 1} / 0{mobileSlides.length}
+                  </span>
+
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={() => setIsMobilePaused(!isMobilePaused)}
+                      className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-white/15 hover:bg-white/25 text-[11px] text-white font-medium active:scale-95 transition cursor-pointer"
+                      aria-label={isMobilePaused ? "Retomar rotação" : "Pausar leitura"}
+                    >
+                      {isMobilePaused ? (
+                        <>
+                          <Play className="w-3 h-3 text-[#61CE70] fill-[#61CE70]" />
+                          <span>Continuar</span>
+                        </>
+                      ) : (
+                        <>
+                          <Pause className="w-3 h-3 text-[#6EC1E4]" />
+                          <span>Pausar</span>
+                        </>
+                      )}
+                    </button>
+                    <button
+                      onClick={() => {
+                        setActiveMobileSlide(
+                          (prev) => (prev - 1 + mobileSlides.length) % mobileSlides.length
+                        );
+                        setMobileProgress(0);
+                      }}
+                      className="p-1.5 rounded-full bg-white/15 hover:bg-white/25 text-white transition active:scale-90"
+                      aria-label="Slide anterior"
+                    >
+                      <ChevronLeft className="w-4 h-4" />
+                    </button>
+                    <button
+                      onClick={() => {
+                        setActiveMobileSlide((prev) => (prev + 1) % mobileSlides.length);
+                        setMobileProgress(0);
+                      }}
+                      className="p-1.5 rounded-full bg-white/15 hover:bg-white/25 text-white transition active:scale-90"
+                      aria-label="Próximo slide"
+                    >
+                      <ChevronRight className="w-4 h-4" />
+                    </button>
+                  </div>
+                </div>
+              </motion.div>
+            </AnimatePresence>
           </div>
 
           {/* Bottom Conversion Area: Single High-Impact Action Button */}
@@ -449,23 +480,6 @@ export default function HeroCarousel({ onOpenBooking }: HeroCarouselProps) {
             </div>
 
             <div className="flex items-center gap-3 text-xs text-neutral-500">
-              <button
-                onClick={() => setIsDesktopPaused((prev) => !prev)}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-neutral-200/70 hover:bg-neutral-300/70 border border-neutral-300/60 text-neutral-700 font-medium text-xs transition cursor-pointer active:scale-95"
-                aria-label={isDesktopPaused ? "Continuar rotação automática" : "Pausar rotação automática"}
-              >
-                {isDesktopPaused ? (
-                  <>
-                    <Play className="w-3.5 h-3.5 text-[#16A34A]" />
-                    <span>Continuar</span>
-                  </>
-                ) : (
-                  <>
-                    <Pause className="w-3.5 h-3.5 text-[#0284C7]" />
-                    <span>Pausar</span>
-                  </>
-                )}
-              </button>
               <div className="flex items-center gap-1.5 text-xs text-neutral-500">
                 <MapPin className="w-3.5 h-3.5 text-[#0284C7] shrink-0" />
                 <span>SC-401 · Próximo ao Passeio Primavera</span>
@@ -473,94 +487,191 @@ export default function HeroCarousel({ onOpenBooking }: HeroCarouselProps) {
             </div>
           </div>
 
-          {/* Main Slide Grid */}
-          <div className="grid grid-cols-12 gap-12 items-center">
-            {/* Left Editorial Text - Exact locked height on desktop */}
-            <div className="col-span-6 flex flex-col justify-between h-[530px] space-y-6">
-              <div className="space-y-3">
-                <span className="inline-block text-xs font-bold uppercase tracking-wider text-[#0284C7]">
-                  {current.tag}
-                </span>
-                <div className="h-[110px] flex items-center">
-                  <h2 className="text-5xl lg:text-6xl font-extrabold tracking-tight text-neutral-950 leading-[1.08]">
-                    {current.title}
-                  </h2>
-                </div>
-              </div>
-
-              <div className="h-[82px] flex items-start">
-                <p className="text-neutral-600 text-lg leading-relaxed font-normal">
-                  {current.subtitle}
-                </p>
-              </div>
-
-              {/* Price & Bullets */}
-              <div className="space-y-3.5 pt-1">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0284C7]/10 text-[#0284C7] text-sm font-semibold w-fit">
-                  {current.priceHighlight}
-                </div>
-
-                <ul className="space-y-2.5">
-                  {current.bullets.map((b, i) => (
-                    <li key={i} className="flex items-center gap-2.5 text-sm text-neutral-700 font-medium">
-                      <span className="w-5 h-5 rounded-full bg-[#16A34A]/15 text-[#16A34A] flex items-center justify-center shrink-0">
-                        <Check className="w-3.5 h-3.5 stroke-[2.5]" />
-                      </span>
-                      <span>{b}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* CTAs */}
-              <div className="flex items-center gap-3.5 pt-1">
-                <a
-                  href={current.primaryCta.href}
-                  className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-black hover:bg-neutral-800 text-white font-semibold text-base transition shadow-sm"
+          {/* Main Slide Grid with 3D Cinematic Perspective */}
+          <div
+            className="grid grid-cols-12 gap-12 items-center"
+            style={{ perspective: "1400px" }}
+          >
+            {/* Left Editorial Text - Exact locked height on desktop with 3D Cinema Transition */}
+            <div className="col-span-6 relative h-[530px]" style={{ perspective: "1200px" }}>
+              <AnimatePresence mode="wait" custom={slideDirection}>
+                <motion.div
+                  key={current.id}
+                  custom={slideDirection}
+                  initial={{
+                    opacity: 0,
+                    x: slideDirection * 40,
+                    rotateY: slideDirection * -14,
+                    scale: 0.95,
+                    filter: "blur(6px)",
+                  }}
+                  animate={{
+                    opacity: 1,
+                    x: 0,
+                    rotateY: 0,
+                    scale: 1,
+                    filter: "blur(0px)",
+                  }}
+                  exit={{
+                    opacity: 0,
+                    x: slideDirection * -35,
+                    rotateY: slideDirection * 12,
+                    scale: 0.95,
+                    filter: "blur(5px)",
+                  }}
+                  transition={{
+                    duration: 0.55,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                  style={{ transformStyle: "preserve-3d" }}
+                  className="flex flex-col justify-between h-[530px] space-y-6"
                 >
-                  <span>{current.primaryCta.label}</span>
-                  <ArrowRight className="w-4 h-4 text-[#6EC1E4]" />
-                </a>
+                  <div className="space-y-3">
+                    <span className="inline-block text-xs font-bold uppercase tracking-wider text-[#0284C7]">
+                      {current.tag}
+                    </span>
+                    <div className="h-[110px] flex items-center">
+                      <h2 className="text-5xl lg:text-6xl font-extrabold tracking-tight text-neutral-950 leading-[1.08]">
+                        {current.title}
+                      </h2>
+                    </div>
+                  </div>
 
-                <button
-                  onClick={() => onOpenBooking(current.secondaryCta.service)}
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white hover:bg-neutral-100 text-neutral-900 border border-neutral-300 font-semibold text-base transition cursor-pointer"
-                >
-                  <Calendar className="w-4 h-4 text-[#0284C7]" />
-                  <span>{current.secondaryCta.label}</span>
-                </button>
-              </div>
+                  <div className="h-[82px] flex items-start">
+                    <p className="text-neutral-600 text-lg leading-relaxed font-normal">
+                      {current.subtitle}
+                    </p>
+                  </div>
+
+                  {/* Price & Bullets */}
+                  <div className="space-y-3.5 pt-1">
+                    <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0284C7]/10 text-[#0284C7] text-sm font-semibold w-fit">
+                      {current.priceHighlight}
+                    </div>
+
+                    <ul className="space-y-2.5">
+                      {current.bullets.map((b, i) => (
+                        <li key={i} className="flex items-center gap-2.5 text-sm text-neutral-700 font-medium">
+                          <span className="w-5 h-5 rounded-full bg-[#16A34A]/15 text-[#16A34A] flex items-center justify-center shrink-0">
+                            <Check className="w-3.5 h-3.5 stroke-[2.5]" />
+                          </span>
+                          <span>{b}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* CTAs */}
+                  <div className="flex items-center gap-3.5 pt-1">
+                    <a
+                      href={current.primaryCta.href}
+                      className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-black hover:bg-neutral-800 text-white font-semibold text-base transition shadow-sm"
+                    >
+                      <span>{current.primaryCta.label}</span>
+                      <ArrowRight className="w-4 h-4 text-[#6EC1E4]" />
+                    </a>
+
+                    <button
+                      onClick={() => onOpenBooking(current.secondaryCta.service)}
+                      className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white hover:bg-neutral-100 text-neutral-900 border border-neutral-300 font-semibold text-base transition cursor-pointer"
+                    >
+                      <Calendar className="w-4 h-4 text-[#0284C7]" />
+                      <span>{current.secondaryCta.label}</span>
+                    </button>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
             </div>
 
-            {/* Right Clean Visual Frame */}
-            <div className="col-span-6 relative">
-              <div className="relative rounded-3xl overflow-hidden bg-neutral-900 shadow-xl border border-neutral-200/90 aspect-[4/3]">
-                <img
-                  src={current.image}
-                  alt={current.title}
-                  className="w-full h-full object-cover transition-all duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
-                  <span className="text-xs uppercase tracking-widest text-[#6EC1E4] font-semibold">
-                    At Work SC · Florianópolis
-                  </span>
-                  <p className="text-white text-base font-medium mt-0.5">
-                    {current.imageCaption}
-                  </p>
-                </div>
+            {/* Right Clean Visual Frame with 3D Cinema Card Depth & Controls */}
+            <div className="col-span-6 relative" style={{ perspective: "1400px" }}>
+              <div className="relative rounded-3xl overflow-hidden bg-neutral-950 shadow-2xl border border-neutral-200/90 h-[540px]">
+                <AnimatePresence mode="wait" custom={slideDirection}>
+                  <motion.div
+                    key={current.id}
+                    custom={slideDirection}
+                    initial={{
+                      opacity: 0,
+                      rotateY: slideDirection * 22,
+                      rotateX: 4,
+                      scale: 0.88,
+                      x: slideDirection * 60,
+                      filter: "brightness(0.6) blur(4px)",
+                    }}
+                    animate={{
+                      opacity: 1,
+                      rotateY: 0,
+                      rotateX: 0,
+                      scale: 1,
+                      x: 0,
+                      filter: "brightness(1) blur(0px)",
+                    }}
+                    exit={{
+                      opacity: 0,
+                      rotateY: slideDirection * -18,
+                      rotateX: -3,
+                      scale: 0.9,
+                      x: slideDirection * -50,
+                      filter: "brightness(0.5) blur(4px)",
+                    }}
+                    transition={{
+                      duration: 0.65,
+                      ease: [0.22, 1, 0.36, 1],
+                    }}
+                    style={{ transformStyle: "preserve-3d" }}
+                    className="w-full h-full relative"
+                  >
+                    <motion.img
+                      src={current.image}
+                      alt={current.title}
+                      initial={{ scale: 1.08 }}
+                      animate={{ scale: 1 }}
+                      transition={{ duration: 1.4, ease: "easeOut" }}
+                      className={`w-full h-full object-cover ${
+                        activeSlide === 0 ? "object-top" : "object-center"
+                      }`}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent flex flex-col justify-end p-8">
+                      <span className="text-xs uppercase tracking-widest text-[#6EC1E4] font-semibold">
+                        At Work SC · Florianópolis
+                      </span>
+                      <p className="text-white text-base font-medium mt-0.5">
+                        {current.imageCaption}
+                      </p>
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
 
-                {/* Prev / Next Controls inside Image */}
-                <div className="absolute top-4 right-4 flex items-center gap-2">
+                {/* Pause / Play + Prev / Next Controls Grouped Together Inside Image */}
+                <div className="absolute top-4 right-4 z-20 flex items-center gap-2">
+                  <button
+                    onClick={() => setIsDesktopPaused((prev) => !prev)}
+                    className="h-10 px-3.5 rounded-full bg-white/90 hover:bg-white text-neutral-900 flex items-center gap-1.5 shadow-md text-xs font-semibold transition cursor-pointer active:scale-95"
+                    aria-label={isDesktopPaused ? "Continuar rotação automática" : "Pausar rotação automática"}
+                    title={isDesktopPaused ? "Continuar rotação automática" : "Pausar rotação automática"}
+                  >
+                    {isDesktopPaused ? (
+                      <>
+                        <Play className="w-4 h-4 text-[#16A34A] fill-[#16A34A]" />
+                        <span>Continuar</span>
+                      </>
+                    ) : (
+                      <>
+                        <Pause className="w-4 h-4 text-[#0284C7]" />
+                        <span>Pausar</span>
+                      </>
+                    )}
+                  </button>
                   <button
                     onClick={handlePrevSlide}
-                    className="w-10 h-10 rounded-full bg-white/90 hover:bg-white text-neutral-900 flex items-center justify-center shadow-md transition cursor-pointer"
+                    className="w-10 h-10 rounded-full bg-white/90 hover:bg-white text-neutral-900 flex items-center justify-center shadow-md transition cursor-pointer active:scale-95"
                     aria-label="Slide anterior"
                   >
                     <ChevronLeft className="w-5 h-5" />
                   </button>
                   <button
                     onClick={handleNextSlide}
-                    className="w-10 h-10 rounded-full bg-white/90 hover:bg-white text-neutral-900 flex items-center justify-center shadow-md transition cursor-pointer"
+                    className="w-10 h-10 rounded-full bg-white/90 hover:bg-white text-neutral-900 flex items-center justify-center shadow-md transition cursor-pointer active:scale-95"
                     aria-label="Próximo slide"
                   >
                     <ChevronRight className="w-5 h-5" />

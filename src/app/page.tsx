@@ -510,6 +510,279 @@ export default function HomePage() {
             </div>
           </section>
 
+          {/* ================= STRATEGIC TECH PARTNERSHIP SECTION: FÉLIXTEC ================= */}
+          <section
+            id="parceiro-tecnologico"
+            aria-labelledby="felixtec-partner-heading"
+            className="py-12 sm:py-16 lg:py-20 bg-white border-t border-neutral-200/80"
+          >
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="rounded-3xl bg-[#F8FAFC] border border-neutral-200/90 p-6 sm:p-10 lg:p-12 shadow-2xs relative overflow-hidden">
+                {/* Subtle Top Accent Line Matching At Work & FélixTec Identity */}
+                <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-[#0071e3] via-[#00d2ff] to-[#16A34A]" />
+
+                {/* Header Content with Official Dev Félix Mascot */}
+                <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+                  <div className="max-w-3xl">
+                    <div className="flex flex-wrap items-center gap-2.5 mb-3">
+                      <span className="text-xs font-bold uppercase tracking-widest text-[#0071e3]">
+                        PARCEIRO OFICIAL DE TECNOLOGIA
+                      </span>
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-neutral-200 text-neutral-800 text-[11px] font-semibold shadow-2xs">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#16A34A]" />
+                        Parceiro Tecnológico Oficial · Benefício Exclusivo Clientes At Work SC
+                      </span>
+                    </div>
+
+                    <h2
+                      id="felixtec-partner-heading"
+                      className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-neutral-950 leading-tight"
+                    >
+                      Abriu seu CNPJ ou fechou seu plano na At Work SC? Coloque sua empresa no ar com condições exclusivas.
+                    </h2>
+
+                    <p className="text-neutral-700 mt-3 text-sm sm:text-base leading-relaxed">
+                      Clientes e membros da At Work SC têm desconto especial com a{" "}
+                      <a
+                        href="https://felixtec.com.br/?utm_source=atworksc&utm_medium=banner_parceiro&utm_campaign=beneficio_cliente"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-extrabold bg-[linear-gradient(135deg,#0071e3,#00d2ff)] bg-clip-text text-transparent hover:opacity-85 transition"
+                      >
+                        FélixTec
+                      </a>{" "}
+                      para estruturar sua presença digital e automatizar seu atendimento em tempo recorde.
+                    </p>
+                  </div>
+
+                  {/* Official Dev Félix Mascot Badge in Partner Banner */}
+                  <a
+                    href="https://felixtec.com.br/?utm_source=atworksc&utm_medium=banner_parceiro&utm_campaign=beneficio_cliente"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group/mascot inline-flex items-center gap-3.5 px-4 py-3 rounded-2xl bg-white border border-neutral-200/90 hover:border-[#00d2ff] shadow-2xs transition self-start lg:self-center shrink-0"
+                    title="Conheça a FélixTec — Parceiro Oficial de Tecnologia"
+                  >
+                    <div className="w-12 h-12 rounded-xl bg-neutral-950 flex items-center justify-center shrink-0 border border-[#00d2ff]/40">
+                      <svg
+                        viewBox="0 0 100 100"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="42"
+                        height="42"
+                        aria-hidden="true"
+                        className="transition-transform duration-300 ease-out group-hover/mascot:-translate-y-0.5"
+                      >
+                        <defs>
+                          <linearGradient id="ft-banner-skin" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stopColor="#ffe5c4" />
+                            <stop offset="100%" stopColor="#fca88f" />
+                          </linearGradient>
+                          <linearGradient id="ft-banner-hoodie" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stopColor="#2d2d3a" />
+                            <stop offset="100%" stopColor="#14141a" />
+                          </linearGradient>
+                        </defs>
+                        <g>
+                          <path d="M23 42 A 28 28 0 0 1 77 42" fill="none" stroke="#15151c" strokeWidth="2.5" />
+                          <path d="M23 42 A 28 28 0 0 1 77 42" fill="none" stroke="#00d2ff" strokeWidth="0.9" />
+                          <rect x="15" y="38" width="8" height="15" rx="4" fill="#15151c" stroke="#00d2ff" strokeWidth="1.1" />
+                          <rect x="77" y="38" width="8" height="15" rx="4" fill="#15151c" stroke="#00d2ff" strokeWidth="1.1" />
+                          <path d="M22 42 C22 60, 78 60, 78 42 Z" fill="url(#ft-banner-skin)" stroke="#fca88f" strokeWidth="0.5" />
+                          <path d="M23 40 Q50 25 77 40 Q64 35 50 38 Q36 35 23 40 Z" fill="#15151c" />
+                          <circle cx="37" cy="46" r="9.5" fill="rgba(0, 210, 255, 0.08)" stroke="#00d2ff" strokeWidth="1.3" />
+                          <circle cx="63" cy="46" r="9.5" fill="rgba(0, 210, 255, 0.08)" stroke="#00d2ff" strokeWidth="1.3" />
+                          <line x1="46.5" y1="46" x2="53.5" y2="46" stroke="#00d2ff" strokeWidth="1.3" />
+                          <circle cx="37" cy="46" r="3.2" fill="#15151c" />
+                          <circle cx="63" cy="46" r="3.2" fill="#15151c" />
+                          <circle cx="38.5" cy="44.5" r="1" fill="#ffffff" />
+                          <circle cx="64.5" cy="44.5" r="1" fill="#ffffff" />
+                          <circle cx="25" cy="51" r="2.5" fill="#ff3366" fillOpacity="0.4" />
+                          <circle cx="75" cy="51" r="2.5" fill="#ff3366" fillOpacity="0.4" />
+                          <path d="M21 54 C21 54, 50 64, 79 54 L75 62 L25 62 Z" fill="#15151c" />
+                          <path d="M23 60 C23 60, 50 56, 77 60 L80 92 L20 92 Z" fill="url(#ft-banner-hoodie)" stroke="#2d2d3a" strokeWidth="1.2" />
+                          <line x1="43" y1="62" x2="43" y2="73" stroke="#00d2ff" strokeWidth="1.2" strokeLinecap="round" />
+                          <line x1="57" y1="62" x2="57" y2="73" stroke="#00d2ff" strokeWidth="1.2" strokeLinecap="round" />
+                          <path d="M44.8 69.5 V63.5 H48.5 V64.7 H45.8 V66.1 H48 V67.2 H45.8 V69.5 Z" fill="#00d2ff" />
+                          <path d="M50 63.5 H55.2 V64.7 H53.5 V69.5 H51.9 V64.7 H50 Z" fill="#00d2ff" />
+                          <path d="M23 66 Q13 70 12 76" stroke="#2d2d3a" strokeWidth="4.5" strokeLinecap="round" fill="none" />
+                          <circle cx="12" cy="76" r="4.5" fill="url(#ft-banner-skin)" />
+                          <path d="M77 66 Q87 70 88 76" stroke="#2d2d3a" strokeWidth="4.5" strokeLinecap="round" fill="none" />
+                          <circle cx="88" cy="76" r="4.5" fill="url(#ft-banner-skin)" />
+                          <rect x="32" y="91" width="13" height="4" rx="2" fill="#15151c" stroke="#00d2ff" strokeWidth="0.9" />
+                          <rect x="55" y="91" width="13" height="4" rx="2" fill="#15151c" stroke="#00d2ff" strokeWidth="0.9" />
+                        </g>
+                      </svg>
+                    </div>
+                    <div className="text-left">
+                      <div className="text-[11px] font-semibold uppercase tracking-wider text-neutral-500">
+                        Dev Félix · Agência Parceira
+                      </div>
+                      <div className="text-sm font-extrabold bg-[linear-gradient(135deg,#0071e3,#00d2ff)] bg-clip-text text-transparent">
+                        FélixTec Soluções Digitais
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                {/* 3-Column Responsive Grid (1 col mobile, 3 cols desktop) */}
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-8 sm:mt-10">
+                  {/* Card 1 — Combo CNPJ no Ar */}
+                  <div className="rounded-2xl bg-white border border-neutral-200/90 p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-[#6EC1E4] group">
+                    <div>
+                      <div className="flex items-center justify-between gap-2 mb-4">
+                        <span className="inline-block px-3 py-1 rounded-full bg-[#6EC1E4]/20 text-[#0369A1] text-xs font-semibold">
+                          Presença Digital Completa
+                        </span>
+                        <span className="text-xs font-semibold text-[#15803D] bg-[#61CE70]/15 px-2.5 py-1 rounded-full">
+                          Até 4 dias úteis
+                        </span>
+                      </div>
+
+                      <h3 className="text-xl font-bold text-neutral-950">
+                        Combo CNPJ no Ar
+                      </h3>
+
+                      <p className="text-sm text-neutral-700 mt-2.5 leading-relaxed">
+                        Site institucional / Landing Page de alta conversão + configuração de e-mail profissional (@suaempresa.com.br). Entrega em até 4 dias úteis.
+                      </p>
+                    </div>
+
+                    <div className="mt-6 pt-5 border-t border-neutral-100">
+                      <div className="mb-5">
+                        <div className="text-xs font-medium text-neutral-600">
+                          De <span className="line-through font-semibold text-neutral-600">R$ 950</span> por
+                        </div>
+                        <div className="flex items-baseline gap-2 mt-0.5">
+                          <span className="text-3xl font-extrabold text-neutral-950">R$ 597</span>
+                          <span className="inline-block px-2.5 py-0.5 rounded-full bg-neutral-900 text-white text-[11px] font-semibold">
+                            Exclusivo At Work
+                          </span>
+                        </div>
+                      </div>
+
+                      <a
+                        href="https://wa.me/5547989224775?text=Ol%C3%A1%20F%C3%A9lix!%20Vim%20pelo%20site%20da%20At%20Work%20SC%20e%20quero%20o%20desconto%20exclusivo%20no%20Combo%20CNPJ%20no%20Ar."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full py-3.5 px-5 rounded-full bg-black hover:bg-neutral-800 text-white font-semibold text-sm text-center flex items-center justify-center gap-2 transition shadow-2xs"
+                      >
+                        <span>Resgatar Desconto</span>
+                        <ArrowRight className="w-4 h-4 text-[#6EC1E4] group-hover:translate-x-1 transition-transform" />
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Card 2 — Vitrine Google & WhatsApp */}
+                  <div className="rounded-2xl bg-white border border-neutral-200/90 p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-[#6EC1E4] group">
+                    <div>
+                      <div className="flex items-center justify-between gap-2 mb-4">
+                        <span className="inline-block px-3 py-1 rounded-full bg-[#6EC1E4]/20 text-[#0369A1] text-xs font-semibold">
+                          Buscas Locais & Conversão
+                        </span>
+                        <span className="text-xs font-semibold text-[#15803D] bg-[#61CE70]/15 px-2.5 py-1 rounded-full">
+                          Entrega em 48h
+                        </span>
+                      </div>
+
+                      <h3 className="text-xl font-bold text-neutral-950">
+                        Vitrine Google & WhatsApp
+                      </h3>
+
+                      <p className="text-sm text-neutral-700 mt-2.5 leading-relaxed">
+                        Configuração e otimização completa do Perfil da Empresa no Google para buscas locais + integração de atendimento rápido no WhatsApp. Entrega em 48h.
+                      </p>
+                    </div>
+
+                    <div className="mt-6 pt-5 border-t border-neutral-100">
+                      <div className="mb-5">
+                        <div className="text-xs font-medium text-neutral-600">
+                          De <span className="line-through font-semibold text-neutral-600">R$ 450</span> por
+                        </div>
+                        <div className="flex items-baseline gap-2 mt-0.5">
+                          <span className="text-3xl font-extrabold text-neutral-950">R$ 297</span>
+                          <span className="inline-block px-2.5 py-0.5 rounded-full bg-neutral-900 text-white text-[11px] font-semibold">
+                            Exclusivo At Work
+                          </span>
+                        </div>
+                      </div>
+
+                      <a
+                        href="https://wa.me/5547989224775?text=Ol%C3%A1%20F%C3%A9lix!%20Vim%20pelo%20site%20da%20At%20Work%20SC%20e%20quero%20o%20desconto%20exclusivo%20no%20Pack%20Google%20%26%20WhatsApp."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full py-3.5 px-5 rounded-full bg-black hover:bg-neutral-800 text-white font-semibold text-sm text-center flex items-center justify-center gap-2 transition shadow-2xs"
+                      >
+                        <span>Resgatar Desconto</span>
+                        <ArrowRight className="w-4 h-4 text-[#6EC1E4] group-hover:translate-x-1 transition-transform" />
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Card 3 — Automação de Atendimento */}
+                  <div className="rounded-2xl bg-white border border-neutral-200/90 p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-[#6EC1E4] group">
+                    <div>
+                      <div className="flex items-center justify-between gap-2 mb-4">
+                        <span className="inline-block px-3 py-1 rounded-full bg-[#6EC1E4]/20 text-[#0369A1] text-xs font-semibold">
+                          Atendimento Inteligente
+                        </span>
+                        <span className="text-xs font-semibold text-[#15803D] bg-[#61CE70]/15 px-2.5 py-1 rounded-full">
+                          3 dias úteis
+                        </span>
+                      </div>
+
+                      <h3 className="text-xl font-bold text-neutral-950">
+                        Automação de Atendimento
+                      </h3>
+
+                      <p className="text-sm text-neutral-700 mt-2.5 leading-relaxed">
+                        Fluxo automático de triagem inicial no WhatsApp e organização automática de leads em planilha/CRM para você não perder nenhuma venda. Entrega em 3 dias úteis.
+                      </p>
+                    </div>
+
+                    <div className="mt-6 pt-5 border-t border-neutral-100">
+                      <div className="mb-5">
+                        <div className="text-xs font-medium text-neutral-600">
+                          De <span className="line-through font-semibold text-neutral-600">R$ 600</span> por
+                        </div>
+                        <div className="flex items-baseline gap-2 mt-0.5">
+                          <span className="text-3xl font-extrabold text-neutral-950">R$ 397</span>
+                          <span className="inline-block px-2.5 py-0.5 rounded-full bg-neutral-900 text-white text-[11px] font-semibold">
+                            Exclusivo At Work
+                          </span>
+                        </div>
+                      </div>
+
+                      <a
+                        href="https://wa.me/5547989224775?text=Ol%C3%A1%20F%C3%A9lix!%20Vim%20pelo%20site%20da%20At%20Work%20SC%20e%20quero%20o%20desconto%20exclusivo%20em%20Automa%C3%A7%C3%A3o%20de%20Atendimento."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full py-3.5 px-5 rounded-full bg-black hover:bg-neutral-800 text-white font-semibold text-sm text-center flex items-center justify-center gap-2 transition shadow-2xs"
+                      >
+                        <span>Resgatar Desconto</span>
+                        <ArrowRight className="w-4 h-4 text-[#6EC1E4] group-hover:translate-x-1 transition-transform" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Discrete Bottom Link to FélixTec Portfolio */}
+                <div className="mt-8 pt-6 border-t border-neutral-200/80 flex items-center justify-center sm:justify-between flex-wrap gap-3 text-center sm:text-left">
+                  <p className="text-xs sm:text-sm text-neutral-700">
+                    Precisa de um projeto sob medida ou automação específica?{" "}
+                    <a
+                      href="https://felixtec.com.br/?utm_source=atworksc&utm_medium=banner_parceiro&utm_campaign=beneficio_cliente"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-bold text-[#0369A1] hover:text-neutral-950 underline underline-offset-4 transition"
+                    >
+                      Conheça o portfólio completo da FélixTec →
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
           {/* ================= INTERACTIVE EXPLAINER VIDEOS ================= */}
           <VideoExplainSection />
 
@@ -856,6 +1129,85 @@ export default function HomePage() {
               Instagram
             </a>
           </div>
+        </div>
+
+        {/* Bottom Tech Partner Credits Bar & Dev Félix Official Signature Badge */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 pt-6 border-t border-neutral-800/90 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left text-neutral-300">
+          <p className="text-xs leading-relaxed">
+            Tecnologia, Performance e Automações por{" "}
+            <a
+              href="https://felixtec.com.br/?utm_source=atworksc&utm_medium=rodape&utm_campaign=parceria_tech"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-bold bg-[linear-gradient(135deg,#0071e3,#00d2ff)] bg-clip-text text-transparent hover:opacity-85 transition"
+            >
+              FélixTec
+            </a>{" "}
+            — Soluções digitais para empresas
+          </p>
+
+          {/* Discrete Agency Signature Badge with Official Dev Félix Mascot */}
+          <a
+            href="https://felixtec.com.br/?utm_source=atworksc&utm_medium=rodape&utm_campaign=parceria_tech"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group/ftbadge inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-neutral-900/90 border border-neutral-800 hover:border-[#00d2ff]/60 transition"
+          >
+            <svg
+              viewBox="0 0 100 100"
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              aria-hidden="true"
+              className="shrink-0 transition-transform duration-300 ease-out group-hover/ftbadge:-translate-y-0.5"
+            >
+              <defs>
+                <linearGradient id="ft-badge-skin" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stopColor="#ffe5c4" />
+                  <stop offset="100%" stopColor="#fca88f" />
+                </linearGradient>
+                <linearGradient id="ft-badge-hoodie" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stopColor="#2d2d3a" />
+                  <stop offset="100%" stopColor="#14141a" />
+                </linearGradient>
+              </defs>
+              <g>
+                <path d="M23 42 A 28 28 0 0 1 77 42" fill="none" stroke="#15151c" strokeWidth="2.5" />
+                <path d="M23 42 A 28 28 0 0 1 77 42" fill="none" stroke="#00d2ff" strokeWidth="0.9" />
+                <rect x="15" y="38" width="8" height="15" rx="4" fill="#15151c" stroke="#00d2ff" strokeWidth="1.1" />
+                <rect x="77" y="38" width="8" height="15" rx="4" fill="#15151c" stroke="#00d2ff" strokeWidth="1.1" />
+                <path d="M22 42 C22 60, 78 60, 78 42 Z" fill="url(#ft-badge-skin)" stroke="#fca88f" strokeWidth="0.5" />
+                <path d="M23 40 Q50 25 77 40 Q64 35 50 38 Q36 35 23 40 Z" fill="#15151c" />
+                <circle cx="37" cy="46" r="9.5" fill="rgba(0, 210, 255, 0.08)" stroke="#00d2ff" strokeWidth="1.3" />
+                <circle cx="63" cy="46" r="9.5" fill="rgba(0, 210, 255, 0.08)" stroke="#00d2ff" strokeWidth="1.3" />
+                <line x1="46.5" y1="46" x2="53.5" y2="46" stroke="#00d2ff" strokeWidth="1.3" />
+                <circle cx="37" cy="46" r="3.2" fill="#15151c" />
+                <circle cx="63" cy="46" r="3.2" fill="#15151c" />
+                <circle cx="38.5" cy="44.5" r="1" fill="#ffffff" />
+                <circle cx="64.5" cy="44.5" r="1" fill="#ffffff" />
+                <circle cx="25" cy="51" r="2.5" fill="#ff3366" fillOpacity="0.4" />
+                <circle cx="75" cy="51" r="2.5" fill="#ff3366" fillOpacity="0.4" />
+                <path d="M21 54 C21 54, 50 64, 79 54 L75 62 L25 62 Z" fill="#15151c" />
+                <path d="M23 60 C23 60, 50 56, 77 60 L80 92 L20 92 Z" fill="url(#ft-badge-hoodie)" stroke="#2d2d3a" strokeWidth="1.2" />
+                <line x1="43" y1="62" x2="43" y2="73" stroke="#00d2ff" strokeWidth="1.2" strokeLinecap="round" />
+                <line x1="57" y1="62" x2="57" y2="73" stroke="#00d2ff" strokeWidth="1.2" strokeLinecap="round" />
+                <path d="M44.8 69.5 V63.5 H48.5 V64.7 H45.8 V66.1 H48 V67.2 H45.8 V69.5 Z" fill="#00d2ff" />
+                <path d="M50 63.5 H55.2 V64.7 H53.5 V69.5 H51.9 V64.7 H50 Z" fill="#00d2ff" />
+                <path d="M23 66 Q13 70 12 76" stroke="#2d2d3a" strokeWidth="4.5" strokeLinecap="round" fill="none" />
+                <circle cx="12" cy="76" r="4.5" fill="url(#ft-badge-skin)" />
+                <path d="M77 66 Q87 70 88 76" stroke="#2d2d3a" strokeWidth="4.5" strokeLinecap="round" fill="none" />
+                <circle cx="88" cy="76" r="4.5" fill="url(#ft-badge-skin)" />
+                <rect x="32" y="91" width="13" height="4" rx="2" fill="#15151c" stroke="#00d2ff" strokeWidth="0.9" />
+                <rect x="55" y="91" width="13" height="4" rx="2" fill="#15151c" stroke="#00d2ff" strokeWidth="0.9" />
+              </g>
+            </svg>
+            <span className="text-xs text-neutral-300 font-medium">
+              Desenvolvido por{" "}
+              <strong className="font-extrabold bg-[linear-gradient(135deg,#0071e3,#00d2ff)] bg-clip-text text-transparent">
+                FélixTec
+              </strong>
+            </span>
+          </a>
         </div>
       </footer>
 
